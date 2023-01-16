@@ -1,4 +1,4 @@
 BLOCK III - Software Architecture & Development Project 
 Tested and succesfully run react app in browser.
 Finished with the required installation and dependencies required for frontend
-Tested and successfully installed all the tools required for thr front end 
+Tested and successfully installed all the tools required for the front end 
