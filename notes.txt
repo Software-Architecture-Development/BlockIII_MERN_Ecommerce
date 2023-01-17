@@ -1,0 +1,1 @@
+backend technologies used are nodejs and mongodb
