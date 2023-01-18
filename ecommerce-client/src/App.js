@@ -2,9 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  return (
+  return (     
     <div className="App">
-      React App is working succesfully in browser
+      React App is working succesfully in browse
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
