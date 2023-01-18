@@ -1,5 +1,2 @@
-BLOCK III - Software Architecture & Development Project 
-
-Working on e-commerce app
-we have finalised the E-commerce web application
-using react for frontend
+BLOCK III - Software Architecture & Development Project
+We have finalized to use MERN stack for our project
