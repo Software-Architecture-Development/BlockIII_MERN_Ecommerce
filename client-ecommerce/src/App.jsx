@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import Footer from './components/Footer';
 
 // function App() {
 //   return (
@@ -26,7 +27,7 @@ import Login from './pages/Login';
 // }
 
 const App = () => {
-  return <Register/>;
+  return <Footer/>;
 };
 
 export default App;
