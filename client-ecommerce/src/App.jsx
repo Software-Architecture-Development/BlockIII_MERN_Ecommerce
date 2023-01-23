@@ -3,6 +3,8 @@ import './App.css';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Footer from './components/Footer';
+import Product from './components/Product';
+import ProductList from './pages/ProductList';
 
 // function App() {
 //   return (
@@ -27,7 +29,7 @@ import Footer from './components/Footer';
 // }
 
 const App = () => {
-  return <Footer/>;
+  return <ProductList/>;
 };
 
 export default App;

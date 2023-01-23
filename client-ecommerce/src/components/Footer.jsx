@@ -25,7 +25,7 @@ import {
   const Logo = styled.h1``;
   
   const Desc = styled.p`
-    margin: 20px 0px;
+    margin: -10px 0px 15px 5px;
   `;
   
   const SocialContainer = styled.div`
@@ -51,7 +51,7 @@ import {
   `;
   
   const Title = styled.h3`
-    margin-bottom: 30px;
+    margin-bottom: 10px;
   `;
   
   const List = styled.ul`
