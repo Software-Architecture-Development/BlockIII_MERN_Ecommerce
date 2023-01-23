@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-//CREATING SCHEMA
+//CREATING SCHEMA OF USER
 const UserSchema = new mongoose.Schema(
   {
     username: { type: String, required: true, unique: true },
