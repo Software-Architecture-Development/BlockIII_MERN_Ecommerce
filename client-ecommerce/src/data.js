@@ -74,3 +74,27 @@ export const sliderItems = [
       img:"https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png",
     },
   ]
+
+  export const slider = [
+    {
+      id: 1,
+      img:"https://i.ibb.co/S6qMxwr/jean.jpg",
+    //   title: "SUMMER SALE",
+    //   desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+      bg: "f5fafd",
+    },
+    {
+      id: 2,
+      img:"https://i.ibb.co/S6qMxwr/jean.jpg",
+    //   title: "AUTUMN COLLECTION",
+    //   desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+      bg: "fcf1ed",
+    },
+    {
+      id: 3,
+      img:"https://i.ibb.co/S6qMxwr/jean.jpg",
+    //   title: "LOUNGEWEAR LOVE",
+    //   desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+      bg: "fbf0f4",
+    },
+  ];

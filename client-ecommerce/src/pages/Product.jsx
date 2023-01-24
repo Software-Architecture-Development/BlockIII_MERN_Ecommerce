@@ -1,9 +1,41 @@
 import { Add, Remove } from "@material-ui/icons";
 import styled from "styled-components";
 import Footer from "../components/Footer";
+import Slide from "../components/Slide";
 import { mobile } from "../responsive";
+import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
+import { useState } from "react";
 
-const Container = styled.div``;
+const Container1 = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  position: absolute;
+  overflow: hidden;
+  ${mobile({ display: "none" })}
+`;
+
+const Arrow = styled.div`
+  width: 50px;
+  height: 50px;
+  background-color: #fff7f7;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   left: ${(props) => props.direction === "left" && "10px"};
+//   right: ${(props) => props.direction === "right" && "10px"};
+//   margin: auto;
+//   cursor: pointer;
+//   opacity: 0.5;
+//   z-index: 2;
+`;
+
+const Container = styled.div`
+`;
 
 const Wrapper = styled.div`
   padding: 50px;
@@ -112,13 +144,42 @@ const Button = styled.button`
   }
 `;
 
+
+
 const Product = () => {
+    const [slideIndex, setSlideIndex] = useState(0);
+    const handleClick = (direction) => {
+      if (direction === "left") {
+        setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
+      } else {
+        setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
+      }
+    };
   return (
     <Container>
+       
+         
+      
+        
+        {/* <Container1>
+        <Arrow direction="left" onClick={() => handleClick("left")}>
+        <ArrowLeftOutlined />
+      </Arrow>
+      <Arrow direction="right" onClick={() => handleClick("right")}>
+        <ArrowRightOutlined />
+      </Arrow>
+      </Container1> */}
       <Wrapper>
-        <ImgContainer>
-          <Image src="https://i.ibb.co/S6qMxwr/jean.jpg" />
-        </ImgContainer>
+      <Slide />
+      {/* <ImgContainer>
+      <Arrow direction="left" onClick={() => handleClick("left")}>
+        <ArrowLeftOutlined />
+      </Arrow>
+      <Arrow direction="right" onClick={() => handleClick("right")}>
+        <ArrowRightOutlined />
+      </Arrow>
+       
+        </ImgContainer> */}
         <InfoContainer>
           <Title>Denim Jumpsuit</Title>
           <Desc>
