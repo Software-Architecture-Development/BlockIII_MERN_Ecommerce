@@ -17,7 +17,7 @@ mongoose
 
 app.use(express.json());
 app.use("/auth", authRoute);
-// app.use("/auth", authRoute);
+app.use("/user", userRoute);
 
 app.listen(process.env.PORT || 5000, () => {
     console.log('backend server is running!');
