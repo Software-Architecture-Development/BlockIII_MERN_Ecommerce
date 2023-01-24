@@ -35,11 +35,12 @@ router.post("/register", async (req, res) => {
         process.env.PASS_SECRET
       );
       const OriginalPassword = hashedPassword.toString(CryptoJS.enc.Utf8);
+
       // CHECK PASSWORD
       OriginalPassword !== req.body.password &&
         res.status(401).json("Wrong credentials!");
-  
-      res.status(200).json({user});
+      const {password,...others} = user._doc;
+        res.status(200).json({user});
     } catch (err) {
       res.status(500).json(err);
     }
