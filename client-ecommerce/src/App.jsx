@@ -3,7 +3,7 @@ import './App.css';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Footer from './components/Footer';
-import Product from './components/Product';
+import Product from './pages/Product';
 import ProductList from './pages/ProductList';
 
 // function App() {
@@ -29,7 +29,7 @@ import ProductList from './pages/ProductList';
 // }
 
 const App = () => {
-  return <ProductList/>;
+  return <Product/>;
 };
 
 export default App;
