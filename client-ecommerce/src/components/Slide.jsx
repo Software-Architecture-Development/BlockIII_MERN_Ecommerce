@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { slider } from "../data";
 import { mobile } from "../responsive";
 
+
 const Container = styled.div`
   width: 50%;
   height: 50vh;

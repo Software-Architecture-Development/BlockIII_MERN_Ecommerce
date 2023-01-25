@@ -5,6 +5,10 @@ import Slide from "../components/Slide";
 import { mobile } from "../responsive";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 import { useState } from "react";
+import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Container1 = styled.div`
   width: 100%;
@@ -147,6 +151,7 @@ const Button = styled.button`
 
 
 const Product = () => {
+    const notify = () => toast.success("Added to Cart");
     const [slideIndex, setSlideIndex] = useState(0);
     const handleClick = (direction) => {
       if (direction === "left") {
@@ -185,7 +190,7 @@ const Product = () => {
           <Desc>
           A jumpsuit is a one-piece garment with sleeves and legs and typically without integral coverings for feet, hands or head.
           </Desc>
-          <Price>$ 20</Price>
+          <Price>€ 20</Price>
           <FilterContainer>
             <Filter>
               <FilterTitle>Color</FilterTitle>
@@ -210,7 +215,8 @@ const Product = () => {
               <Amount>1</Amount>
               <Add />
             </AmountContainer>
-            <Button>ADD TO CART</Button>
+            <Button onClick={notify}>ADD TO CART</Button>
+            <ToastContainer />
           </AddContainer>
         </InfoContainer>
       </Wrapper>
