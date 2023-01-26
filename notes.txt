@@ -1,0 +1,2 @@
+backend technologies used nodejs and mongodb
+created cloud on mongo atlas
