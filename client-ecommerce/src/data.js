@@ -22,11 +22,34 @@ export const carouselItems = [
     },
     {
         id: 4,
-        img: "https://cdn.pixabay.com/photo/2019/03/12/13/26/jeans-4050815_1280.jpg",
+        img: "https://cdn.pixabay.com/photo/2017/08/01/01/33/beanie-2562646_1280.jpg",
         bg: "fcf1ed",
         title: "WINTER TREND",
         desc: "GET FLAT 40% OFF FOR NEW ARRIVALS.",
       },
   ];
 
- 
+  export const categories = [
+    {
+      id: 1,
+      img: "https://cdn.pixabay.com/photo/2015/09/05/20/14/guy-925008_1280.jpg",
+      title: "LOUNGEWEAR LOVE",
+    },
+    {
+      id: 2,
+      img: "https://cdn.pixabay.com/photo/2017/08/10/06/56/boy-2619201_1280.jpg",
+      title: "SHIRT FASHION ",
+    },
+    {
+      id: 3,
+      img:"https://cdn.pixabay.com/photo/2017/08/01/11/48/woman-2564660_1280.jpg",
+      title: "LIGHT JACKETS",
+    },
+    {
+      id: 4,
+      img: "https://cdn.pixabay.com/photo/2019/12/23/08/15/orange-jacket-4714097_1280.jpg",
+      title: "WOOLEN SHIRTS",
+    },
+  ];
+
+  
