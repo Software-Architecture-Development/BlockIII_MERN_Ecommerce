@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Products from "../components/Products";
+import Products1 from "../components/Products1";
 import Footer from "../components/Footer";
 import { mobile } from "../responsive";
 
@@ -71,7 +71,7 @@ const ProductList = () => {
           </Select>
         </Filter>
       </FilterContainer>
-      <Products />
+      <Products1 />
       <Footer />
     </Container>
   );

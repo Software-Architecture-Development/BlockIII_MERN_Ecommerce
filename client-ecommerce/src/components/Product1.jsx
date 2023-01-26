@@ -65,7 +65,7 @@ import {
     }
   `;
   
-  const Product = ({ item }) => {
+  const Product1 = ({ item }) => {
     return (
       <Container>
         <Circle />
@@ -85,4 +85,4 @@ import {
     );
   };
   
-  export default Product;
+  export default Product1;

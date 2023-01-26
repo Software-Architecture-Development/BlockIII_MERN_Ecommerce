@@ -33,7 +33,7 @@ import ReactNotificationComponent from './ReactNotification';
 // }
 
 const App = () => {
-  return <Product/>;
+  return <Register/>;
 };
 
 // function App() {
