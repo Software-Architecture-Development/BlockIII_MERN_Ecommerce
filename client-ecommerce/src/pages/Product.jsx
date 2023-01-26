@@ -10,33 +10,33 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-const Container1 = styled.div`
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  position: absolute;
-  overflow: hidden;
-  ${mobile({ display: "none" })}
-`;
-
-const Arrow = styled.div`
-  width: 50px;
-  height: 50px;
-  background-color: #fff7f7;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+// const Container1 = styled.div`
+//   width: 100%;
+//   height: 100vh;
+//   display: flex;
 //   position: absolute;
-//   top: 0;
-//   bottom: 0;
-//   left: ${(props) => props.direction === "left" && "10px"};
-//   right: ${(props) => props.direction === "right" && "10px"};
-//   margin: auto;
-//   cursor: pointer;
-//   opacity: 0.5;
-//   z-index: 2;
-`;
+//   overflow: hidden;
+//   ${mobile({ display: "none" })}
+// `;
+
+// const Arrow = styled.div`
+//   width: 50px;
+//   height: 50px;
+//   background-color: #fff7f7;
+//   border-radius: 50%;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// //   position: absolute;
+// //   top: 0;
+// //   bottom: 0;
+// //   left: ${(props) => props.direction === "left" && "10px"};
+// //   right: ${(props) => props.direction === "right" && "10px"};
+// //   margin: auto;
+// //   cursor: pointer;
+// //   opacity: 0.5;
+// //   z-index: 2;
+// `;
 
 const Container = styled.div`
 `;
@@ -175,16 +175,11 @@ const Product = () => {
       </Arrow>
       </Container1> */}
       <Wrapper>
-      <Slide />
-      {/* <ImgContainer>
-      <Arrow direction="left" onClick={() => handleClick("left")}>
-        <ArrowLeftOutlined />
-      </Arrow>
-      <Arrow direction="right" onClick={() => handleClick("right")}>
-        <ArrowRightOutlined />
-      </Arrow>
+      {/* <Slide /> */}
+      <ImgContainer>
+         <Image src="https://i.ibb.co/S6qMxwr/jean.jpg" />
        
-        </ImgContainer> */}
+        </ImgContainer>
         <InfoContainer>
           <Title>Denim Jumpsuit</Title>
           <Desc>

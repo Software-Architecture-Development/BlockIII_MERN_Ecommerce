@@ -32,43 +32,43 @@ import ReactNotificationComponent from './ReactNotification';
 //   );
 // }
 
-// const App = () => {
-//   return <Product/>;
-// };
+const App = () => {
+  return <Product/>;
+};
 
-function App() {
-  const [show, setShow] = useState(false);
-  const [notification, setNotification] = useState({ title: "", body: "" });
+// function App() {
+//   const [show, setShow] = useState(false);
+//   const [notification, setNotification] = useState({ title: "", body: "" });
 
-  console.log(show, notification);
+//   console.log(show, notification);
 
-  onMessageListener()
-    .then((payload) => {
-      setShow(true);
-      setNotification({
-        title: payload.notification.title,
-        body: payload.notification.body,
-      });
-      console.log(payload);
-    })
-    .catch((err) => console.log("failed: ", err));
+//   onMessageListener()
+//     .then((payload) => {
+//       setShow(true);
+//       setNotification({
+//         title: payload.notification.title,
+//         body: payload.notification.body,
+//       });
+//       console.log(payload);
+//     })
+//     .catch((err) => console.log("failed: ", err));
 
-  return (
-    <div className="App">
-      {show ? (
-        <ReactNotificationComponent
-          title={notification.title}
-          body={notification.body}
-        />
-      ) : (
-        <></>
-      )}
-      <Notifications />
+//   return (
+//     <div className="App">
+//       {show ? (
+//         <ReactNotificationComponent
+//           title={notification.title}
+//           body={notification.body}
+//         />
+//       ) : (
+//         <></>
+//       )}
+//       <Notifications />
     
       
       
-    </div>
-  );
-}
+//     </div>
+//   );
+// }
 
 export default App;
