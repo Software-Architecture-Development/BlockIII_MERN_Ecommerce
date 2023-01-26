@@ -33,6 +33,11 @@ const Button = styled.button`
    cursor:pointer;
    opacity:0.8;
    font-weight: bold;
+   &:hover {
+    transition: all 0.8s ease;
+    background-color: brown;
+    transform: scale(1.1);
+  }
 `
 
 const CategoryItem = ({item}) => {
@@ -43,7 +48,6 @@ const CategoryItem = ({item}) => {
       <Details>
       <Title>{item.title}</Title>
       <Button>SHOP NOW</Button>
-
       </Details>
     </Container>
   )
