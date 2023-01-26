@@ -65,6 +65,10 @@ padding:10px;
 font-size:20px;
 background-color:transparent;
 cursor: pointer;
+&:hover {
+  transition: all 0.8s ease;
+  background-color: lightpink;
+}
 `
 const Carousel = () => {
 const [carouselIndex, setCarouselIndex] =useState(0);
