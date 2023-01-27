@@ -1,139 +1,123 @@
-import {
-    Facebook,
-    Instagram,
-    MailOutline,
-    Phone,
-    Pinterest,
-    Room,
-    Twitter,
-  } from "@material-ui/icons";
-  import styled from "styled-components";
-  import { mobile } from "../responsive";
-  
-  const Container = styled.div`
-    display: flex;
-    ${mobile({ flexDirection: "column" })}
-  `;
-  
-  const Left = styled.div`
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-  `;
-  
-  const Logo = styled.h1``;
-  
-  const Desc = styled.p`
-    margin: -10px 0px 15px 5px;
-  `;
-  
-  const SocialContainer = styled.div`
-    display: flex;
-  `;
-  
-  const SocialIcon = styled.div`
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    color: white;
-    background-color: #${(props) => props.color};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 20px;
-  `;
-  
-  const Center = styled.div`
-    flex: 1;
-    padding: 20px;
-    ${mobile({ display: "none" })}
-  `;
-  
-  const Title = styled.h3`
-    margin-bottom: 10px;
-  `;
-  
-  const List = styled.ul`
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-  `;
-  
-  const ListItem = styled.li`
-    width: 50%;
-    margin-bottom: 10px;
-  `;
-  
-  const Right = styled.div`
-    flex: 1;
-    padding: 20px;
-    ${mobile({ backgroundColor: "#fff8f8" })}
-  `;
-  
-  const ContactItem = styled.div`
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-  `;
-  
-  const Payment = styled.img`
-      width: 50%;
-  `;
-  
-  const Footer = () => {
-    return (
-      <Container>
-        <Left>
-          <Logo>NAMASTE.</Logo>
-          <Desc>
-          Namaste Fashion is an Indian clothing online retail store. You can find us on
-          </Desc>
-          <SocialContainer>
-            <SocialIcon color="3B5999">
-              <Facebook />
-            </SocialIcon>
-            <SocialIcon color="E4405F">
-              <Instagram />
-            </SocialIcon>
-            <SocialIcon color="55ACEE">
-              <Twitter />
-            </SocialIcon>
-            <SocialIcon color="E60023">
-              <Pinterest />
-            </SocialIcon>
-          </SocialContainer>
-        </Left>
-        <Center>
-          <Title>Useful Links</Title>
-          <List>
-            <ListItem>Home</ListItem>
-            <ListItem>Cart</ListItem>
-            <ListItem>Man Fashion</ListItem>
-            <ListItem>Woman Fashion</ListItem>
-            <ListItem>My Account</ListItem>
-            <ListItem>Order Tracking</ListItem>
-            <ListItem>Wishlist</ListItem>
-            <ListItem>Terms</ListItem>
-          </List>
-        </Center>
-        <Right>
-          <Title>Contact</Title>
-          <ContactItem>
-            <Room style={{marginRight:"10px"}}/> Ludwig-Guttmann Strasse , SRH Holdings, Heidelberg 69123
-          </ContactItem>
-          <ContactItem>
-            <Phone style={{marginRight:"10px"}}/> +49 12345678
-          </ContactItem>
-          <ContactItem>
-            <MailOutline style={{marginRight:"10px"}} /> contact@namaste.de
-          </ContactItem>
-          <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
-        </Right>
-      </Container>
-    );
-  };
-  
-  export default Footer;
+import React from 'react'
+import styled from 'styled-components'
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import FmdGoodIcon from '@mui/icons-material/FmdGood';
+import CallIcon from '@mui/icons-material/Call';
+import MailIcon from '@mui/icons-material/Mail';
+
+const Container =styled.div`
+  display:flex;
+`
+const Logo =styled.h1`
+`
+const Description = styled.p`
+  margin:10px 0;
+`
+
+const SocialMedia =styled.div`
+   display:flex;
+`
+const Icons =styled.div`
+   width:30px;
+   height:30px;  
+   background-color:#bc8f8f;
+   border-radius:30%;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   margin-right:20px;
+`
+
+const Left =styled.div`
+flex:1;
+display:flex;
+flex-direction:column;
+padding:20px;
+`
+const Right =styled.div`
+flex:1;
+padding:20px;
+`
+const ContactDetails =styled.div`
+ margin:20px 0;
+ display:flex;
+ align-items:center
+`
+const Payment =styled.img`
+width:50%;
+`
+const Center =styled.div`
+flex:1;
+padding:20px;
+`
+const Title= styled.h3`
+margin-bottom:20px
+`
+const List =styled.ul`
+    msargin:0;
+    padding:0;
+    list-style:none;
+    display:flex;
+    flex-wrap:wrap
+`
+const ListItem =styled.li`
+    width:50%;
+    margin-bottom:8px;
+`
+
+const Footer = () => {
+  return (
+    <Container>
+      <Left>
+        <Logo>ECOMMER.</Logo>
+        <Description>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi beatae totam et nobis quae velit, reiciendis eveniet laudantium eligendi nisi suscipit nulla hic unde blanditiis delectus sunt eaque quidem voluptatem quaerat assumenda voluptatum harum placeat porro! Suscipit error accusamus saepe? Modi dolore repudiandae voluptatibus saepe cumque ullam sit velit consectetur!</Description>
+      <SocialMedia>
+        <Icons>
+      <FacebookIcon/>
+      </Icons>
+      <Icons>
+      <InstagramIcon/>
+      </Icons>
+      <Icons>
+      <LinkedInIcon/>
+      </Icons>
+      <Icons>
+      <TwitterIcon/>
+      </Icons>
+      </SocialMedia>
+      </Left>
+      <Center>
+        <Title> Imp. Links</Title>
+        <List>
+        <ListItem>Home</ListItem>
+        <ListItem>My Account</ListItem>
+          <ListItem>Cart</ListItem>
+          <ListItem>Accessories</ListItem>
+          <ListItem>Mens Fashion</ListItem>
+          <ListItem>Womens Fashion</ListItem>
+          <ListItem>Order Track</ListItem>
+          <ListItem>Wishlist</ListItem>
+          <ListItem>Terms & Conditions</ListItem>
+        </List>
+      </Center>
+      <Right>
+        <Title>Contact Info</Title>
+        <ContactDetails>
+        <FmdGoodIcon style={{marginRight: "10px"}}/> 532, Heidelberg Bismarkplatz Germany
+        </ContactDetails>
+        <ContactDetails>
+        <CallIcon style={{marginRight: "10px"}}/> +49-151526263O
+        </ContactDetails>
+        <ContactDetails>
+         <MailIcon style={{marginRight: "10px"}}/> abc@gmail.com
+        </ContactDetails>
+        <Payment src ="https://i.ibb.co/Qfvn4z6/payment.png"/>
+      </Right>
+    </Container>
+  )
+}
+
+export default Footer
