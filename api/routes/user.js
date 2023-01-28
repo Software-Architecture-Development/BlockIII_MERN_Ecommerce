@@ -1,12 +1,12 @@
-const router = require("express").Router();
-//testing api
-router.get("/userget", (req, res) => {
-    res.send("success");
+const router = require("express").Router;
+
+router.get("/usertest", (req, res)=>{
+res.send("user test is successfull");
 });
 
-router.post("/userpost", (req, res) => {
-    const username = req.body.usename;
+router.post("/userposttest", (req, res)=>{
+    const username = req.body.username;
     console.log(username);
 });
 
-module.exports = router;
+module.exports = router
