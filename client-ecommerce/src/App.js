@@ -5,7 +5,8 @@ import {createBrowserRouter,RouterProvider,
 
 
 
-function App() {
+const App = () => {
+    const user = useSelector((state) => state.user.currentUser);
   return (
     
       <div className="App">
