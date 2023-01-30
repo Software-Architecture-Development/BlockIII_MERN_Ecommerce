@@ -53,6 +53,7 @@ const Button = styled.button`
   background-color: #777799;
   color: white;
   cursor: pointer;
+  align-items: center;
   ${mobile({ padding: "20px 20px" })}
 `;
 
