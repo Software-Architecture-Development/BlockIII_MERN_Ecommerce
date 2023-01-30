@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Products1 from "../components/Products1";
 import Footer from "../components/Footer";
 import { mobile } from "../responsive";
+import { useLocation } from "react-router";
 
 const Container = styled.div``;
 
@@ -34,6 +35,8 @@ const Select = styled.select`
 const Option = styled.option``;
 
 const ProductList = () => {
+  const location = useLocation();
+  console.log(location)
   return (
     <Container>
       <Title>Dresses</Title>
