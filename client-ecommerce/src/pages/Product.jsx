@@ -193,6 +193,7 @@ const Product = () => {
       dispatch(
         addProduct({ ...product, quantity, color, size })
       );
+      toast.success("Added to Cart");
     };
 
 
@@ -225,14 +226,14 @@ const Product = () => {
           <FilterContainer>
             <Filter>
               <FilterTitle>Color</FilterTitle>
-              {product.color.map((c)=>(
-                <FilterColor color={c} key={c}/>
+              {product.color?.map((c)=>(
+                <FilterColor color={c} key={c} onClick={()=>setColor(c)}/>
               ))}
             </Filter>
             <Filter>
               <FilterTitle>Size</FilterTitle>
-              <FilterSize>
-                {product.size.map((s)=>(
+              <FilterSize onChange={(e)=>setSize(e.target.value)}>
+                {product.size?.map((s)=>(
                   <FilterSizeOption key={s}>{s}</FilterSizeOption>
                 ))}
               </FilterSize>
@@ -244,7 +245,7 @@ const Product = () => {
               <Amount>{quantity}</Amount>
               <Add onClick={()=> handleQuantity("inc")}/>
             </AmountContainer>
-            <Button onClick={notify}>ADD TO CART</Button>
+            <Button onClick={handleClick}>ADD TO CART</Button>
             <ToastContainer />
           </AddContainer>
         </InfoContainer>
