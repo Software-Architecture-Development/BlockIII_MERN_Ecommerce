@@ -1,18 +1,18 @@
 import Home from './pages/Home';
-import {createBrowserRouter,RouterProvider,
-  Route,
-  Link,} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
+import Register from './pages/Register';
 
-
-
-function App() {
+const App = () => {
   return (
-    
+    <BrowserRouter>
       <div className="App">
-       <Route path="/" element={<Home />}>
-        </Route>
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
       </div>
-    
+    </BrowserRouter>
   );
 }
 
