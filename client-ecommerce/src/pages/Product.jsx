@@ -8,7 +8,8 @@ import { useState } from "react";
 import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { addProduct } from "../redux/cartRedux";
+import { useDispatch } from "react-redux";
 
 // const Container1 = styled.div`
 //   width: 100%;
@@ -151,20 +152,26 @@ const Button = styled.button`
 
 
 const Product = () => {
+   
+  const dispatch =useDispatch();``
+
     const notify = () => toast.success("Added to Cart");
-    const [slideIndex, setSlideIndex] = useState(0);
-    const handleClick = (direction) => {
-      if (direction === "left") {
-        setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
-      } else {
-        setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
-      }
-    };
+    // const [slideIndex, setSlideIndex] = useState(0);
+    // const handleClick = (direction) => {
+    //   if (direction === "left") {
+    //     setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
+    //   } else {
+    //     setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
+    //   }
+    // };
+
+    const handleClick =() =>{
+      // update our cart
+      dispatch(addProduct({ ...product, quantity, color, size}))
+    }
+
   return (
-    <Container>
-       
-         
-      
+    <Container>   
         
         {/* <Container1>
         <Arrow direction="left" onClick={() => handleClick("left")}>
@@ -210,7 +217,7 @@ const Product = () => {
               <Amount>1</Amount>
               <Add />
             </AmountContainer>
-            <Button onClick={notify}>ADD TO CART</Button>
+            <Button onClick={handleClick}>ADD TO CART</Button>
             <ToastContainer />
           </AddContainer>
         </InfoContainer>
