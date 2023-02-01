@@ -12,6 +12,8 @@ import { useLocation } from "react-router";
 import { useEffect, useState } from "react";
 import { publicRequest } from "../requestMethods";
 
+import { addProduct } from "../redux/cartRedux";
+import { useDispatch } from "react-redux";
 
 // const Container1 = styled.div`
 //   width: 100%;
@@ -198,10 +200,7 @@ const Product = () => {
 
 
   return (
-    <Container>
-       
-         
-      
+    <Container>   
         
         {/* <Container1>
         <Arrow direction="left" onClick={() => handleDirection("left")}>

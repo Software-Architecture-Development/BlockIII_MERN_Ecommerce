@@ -1,26 +1,3 @@
-export const sliderItems = [
-    {
-      id: 1,
-      img: "https://i.ibb.co/XsdmR2c/1.png",
-      title: "SUMMER SALE",
-      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-      bg: "f5fafd",
-    },
-    {
-      id: 2,
-      img: "https://i.ibb.co/DG69bQ4/2.png",
-      title: "AUTUMN COLLECTION",
-      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-      bg: "fcf1ed",
-    },
-    {
-      id: 3,
-      img: "https://i.ibb.co/cXFnLLV/3.png",
-      title: "LOUNGEWEAR LOVE",
-      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-      bg: "fbf0f4",
-    },
-];
 export const carouselItems = [
     {
       id: 1,
@@ -46,6 +23,30 @@ export const carouselItems = [
         title: "WINTER TREND",
         desc: "GET FLAT 40% OFF FOR NEW ARRIVALS.",
       },
+]
+
+export const sliderItems = [
+    {
+      id: 1,
+      img: "https://i.ibb.co/XsdmR2c/1.png",
+      title: "SUMMER SALE",
+      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+      bg: "f5fafd",
+    },
+    {
+      id: 2,
+      img: "https://i.ibb.co/DG69bQ4/2.png",
+      title: "AUTUMN COLLECTION",
+      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+      bg: "fcf1ed",
+    },
+    {
+      id: 3,
+      img: "https://i.ibb.co/cXFnLLV/3.png",
+      title: "LOUNGEWEAR LOVE",
+      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+      bg: "fbf0f4",
+    },
   ];
 
   export const categories = [
@@ -104,4 +105,4 @@ export const carouselItems = [
       id:8,
       img:"https://cdn.shopify.com/s/files/1/0246/0234/5546/products/Encore_Organic_Baseball_Cap-Cap-LDM702043-522722-Olive_Night_Rubber_600x.jpg?v=1670507623",
     },
-  ];
+  ]
