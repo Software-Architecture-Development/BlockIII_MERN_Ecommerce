@@ -37,7 +37,7 @@ const Products = ({cat,filters,sort}) => {
        item[key].includes(value)
       ))
     )
-  },[products,cat,filers]);
+  },[products,cat,filters]);
 
   useEffect(()=>{
     if((sort === "newest")){
@@ -64,11 +64,6 @@ const Products = ({cat,filters,sort}) => {
           <Product item ={item} key={item.id}/>)) 
       }
     </Container>
-    // <Container>
-    //   {trendingProducts.map((item) =>(
-    //     <Product item ={item} key={item.id}/>
-    //   ))}
-    // </Container>
   )
 }
 
