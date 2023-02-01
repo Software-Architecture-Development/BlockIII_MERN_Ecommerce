@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
 import { mobile } from "../responsive";
-
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
@@ -73,7 +72,9 @@ const Register = () => {
           I hereby consent to the processing of the personal data  and declare my
            agreement with the <b>DATA PROTECTION REGULATIONS</b>
           </Agreement>
+         
           <Button>REGISTER</Button>
+         
         </Form>
       </Wrapper>
     </Container>
