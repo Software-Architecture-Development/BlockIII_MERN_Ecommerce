@@ -7,6 +7,9 @@ const authRoute = require("./routes/auth");
 const productRoute = require("./routes/product");
 const cartRoute = require("./routes/cart");
 const orderRoute = require("./routes/order");
+const cors = require('cors');
+mongoose.set("strictQuery", true);
+app.use(cors());
 
 dotenv.config();
 
@@ -17,13 +20,14 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-
 app.use(express.json());
+
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);
 app.use("/api/cart", cartRoute);
 app.use("/api/order", orderRoute);
+
 
 app.listen(process.env.PORT || 5000, () => {
     console.log('backend server is running!');

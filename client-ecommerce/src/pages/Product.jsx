@@ -8,7 +8,12 @@ import { useState } from "react";
 import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useLocation } from "react-router";
+import { useEffect, useState } from "react";
+import { publicRequest } from "../requestMethods";
 
+import { addProduct } from "../redux/cartRedux";
+import { useDispatch } from "react-redux";
 
 // const Container1 = styled.div`
 //   width: 100%;
@@ -151,66 +156,95 @@ const Button = styled.button`
 
 
 const Product = () => {
+    const location = useLocation();
+    const id = location.pathname.split("/")[2];
+    const [product, setProduct] = useState({});
+    const [quantity, setQuantity] = useState(1);
+    const [color, setColor] = useState("");
+    const [size, setSize] = useState("");
+    const dispatch = useDispatch();
     const notify = () => toast.success("Added to Cart");
     const [slideIndex, setSlideIndex] = useState(0);
-    const handleClick = (direction) => {
+    const handleDirection = (direction) => {
       if (direction === "left") {
         setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
       } else {
         setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
       }
     };
+
+    useEffect(() => {
+      const getProduct = async () => {
+        try {
+          const res = await publicRequest.get("/products/find/" + id);
+          setProduct(res.data);
+        } catch {}
+      };
+      getProduct();
+    }, [id]);
+  
+    const handleQuantity = (type) => {
+      if (type === "dec") {
+        quantity > 1 && setQuantity(quantity - 1);
+      } else {
+        setQuantity(quantity + 1);
+      }
+    };
+  
+    const handleClick = () => {
+      dispatch(
+        addProduct({ ...product, quantity, color, size })
+      );
+      toast.success("Added to Cart");
+    };
+
+
   return (
-    <Container>
-       
-         
-      
+    <Container>   
         
         {/* <Container1>
-        <Arrow direction="left" onClick={() => handleClick("left")}>
+        <Arrow direction="left" onClick={() => handleDirection("left")}>
         <ArrowLeftOutlined />
       </Arrow>
-      <Arrow direction="right" onClick={() => handleClick("right")}>
+      <Arrow direction="right" onClick={() => handleDirection("right")}>
         <ArrowRightOutlined />
       </Arrow>
       </Container1> */}
       <Wrapper>
       {/* <Slide /> */}
       <ImgContainer>
-         <Image src="https://i.ibb.co/S6qMxwr/jean.jpg" />
+         <Image src={product.img} />
        
         </ImgContainer>
         <InfoContainer>
-          <Title>Denim Jumpsuit</Title>
+          <Title>{product.title}</Title>
           <Desc>
-          A jumpsuit is a one-piece garment with sleeves and legs and typically without integral coverings for feet, hands or head.
+          {product.desc}
           </Desc>
-          <Price>€ 20</Price>
+          <Price>€ {product.price}</Price>
           <FilterContainer>
             <Filter>
               <FilterTitle>Color</FilterTitle>
-              <FilterColor color="black" />
-              <FilterColor color="darkblue" />
-              <FilterColor color="gray" />
+              {product.color?.map((c)=>(
+                <FilterColor color={c} key={c} onClick={()=>setColor(c)}/>
+              ))}
             </Filter>
             <Filter>
               <FilterTitle>Size</FilterTitle>
-              <FilterSize>
-                <FilterSizeOption>XS</FilterSizeOption>
-                <FilterSizeOption>S</FilterSizeOption>
-                <FilterSizeOption>M</FilterSizeOption>
-                <FilterSizeOption>L</FilterSizeOption>
-                <FilterSizeOption>XL</FilterSizeOption>
+              <FilterSize onChange={(e)=>setSize(e.target.value)}>
+                {product.size?.map((s)=>(
+                  <FilterSizeOption key={s}>{s}</FilterSizeOption>
+                ))}
               </FilterSize>
             </Filter>
           </FilterContainer>
           <AddContainer>
             <AmountContainer>
-              <Remove />
-              <Amount>1</Amount>
-              <Add />
+              <Remove onClick={()=> handleQuantity("dec")} />
+              <Amount>{quantity}</Amount>
+              <Add onClick={()=> handleQuantity("inc")}/>
             </AmountContainer>
-            <Button onClick={notify}>ADD TO CART</Button>
+            <Button onClick={handleClick}>ADD TO CART</Button>
             <ToastContainer />
           </AddContainer>
         </InfoContainer>
