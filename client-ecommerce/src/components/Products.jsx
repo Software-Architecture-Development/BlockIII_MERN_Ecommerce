@@ -37,7 +37,7 @@ const Products = ({cat,filters,sort}) => {
        item[key].includes(value)
       ))
     )
-  },[products,cat,filers]);
+  },[products,cat,filters]);
 
   useEffect(()=>{
     if((sort === "newest")){

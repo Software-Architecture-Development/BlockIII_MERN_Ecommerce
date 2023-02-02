@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import { Link } from "react-router-dom";
 
 const Details =styled.div`
   opacity: 0;
