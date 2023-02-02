@@ -58,16 +58,24 @@ const Button = styled.button`
 `;
 
 const Register = () => {
+  const [email, setEmail] = useState('');
+    const [password, setPass] = useState('');
+    const [firstname, setName] = useState('');
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(email);
+    }
   return (
     <Container>
       <Wrapper>
         <Title>CREATE AN ACCOUNT</Title>
         <Form>
-          <Input placeholder="name" />
-          <Input placeholder="last name" />
+          <Input placeholder="firstname" onChange={(e) => setName(e.target.value)}/>
+          <Input placeholder="lastname" />
           <Input placeholder="username" />
-          <Input placeholder="email" />
-          <Input placeholder="password" />
+          <Input placeholder="email" onChange={(e) => setEmail(e.target.value)}/>
+          <Input placeholder="password" type={password} onChange={(e) => setPass(e.target.value)} />
           <Input placeholder="confirm password" />
           <Agreement>
           I hereby consent to the processing of the personal data  and declare my
