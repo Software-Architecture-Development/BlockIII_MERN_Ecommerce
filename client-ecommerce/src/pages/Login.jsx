@@ -63,7 +63,7 @@ const Button = styled.button`
 const Link = styled.a`
   margin: 5px 0px;
   font-size: 12px;
-  text-decoration: underline;
+  text-decoration: none;
   cursor: pointer;
 `;
 
@@ -102,8 +102,8 @@ const Login = () => {
           {console.log("error", isFetching, error)}
           {/* {error === false ? <Error>Something went wrong...</Error>:""} */}
           <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
-          <Nav.Link href="/register">
-          <Link>CREATE A NEW ACCOUNT</Link>
+          <Nav.Link href="/register" >
+          <Link >CREATE A NEW ACCOUNT</Link>
           </Nav.Link>
         </Form>
       </Wrapper>
