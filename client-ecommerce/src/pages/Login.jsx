@@ -75,9 +75,9 @@ const Login = () => {
   const { isFetching, error } = useSelector((state) => state.user);
 
   const handleClick = (e) => {
-    console.log(e.target.value)
-    e.preventDefault();
+    console.log(e.target.value);  
     login(dispatch, { username, password });
+    e.preventDefault();
   };
   return (
     <Container>
@@ -96,7 +96,7 @@ const Login = () => {
           <Button onClick={handleClick} disabled={isFetching}>
             LOGIN
           </Button>
-          {error && <Error>Something went wrong...</Error>}
+          {/* {error && <Error>Something went wrong...</Error>} */}
           <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
           <Link>CREATE A NEW ACCOUNT</Link>
         </Form>

@@ -5,7 +5,10 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import Badge from '@mui/material/Badge';
 import { mobile } from "../responsive";
 import {useSelector} from "react-redux";
-import { Link } from "react-router-dom";
+import {
+ Nav
+} from "react-bootstrap";
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   height: 60px;
@@ -87,15 +90,18 @@ const Navbar = () => {
           <Logo> ECOMMERCE.</Logo>
         </Center>
         <Right>
+        <Nav.Link href="/register">
           <MenuItem>REGISTER</MenuItem>
+          </Nav.Link>
+          <Nav.Link href="/login">
           <MenuItem>SIGN IN</MenuItem>
-          <Link to ="/cart">
+          </Nav.Link>
           <MenuItem>
           <Badge badgeContent={quantity} color="primary">
           <ShoppingCartOutlinedIcon/>
           </Badge>
           </MenuItem>
-          </Link>
+          {/* </Link> */}
         </Right>
       </Wrapper>
     </Container>

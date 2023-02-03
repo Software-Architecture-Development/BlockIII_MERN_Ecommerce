@@ -11,15 +11,23 @@ services:
 
 #node Api service
   api:
-    build: .
+    build: ./api
     ports:
     - 5000:5000
     environment:
       PORT: 5000
-      MONGOB_URI: mongodb+srv://team6:1234@ecommerce.cquauiy.mongodb.net/test
+      MONGO_URL: mongodb+srv://team6:1234@ecommerce.cquauiy.mongodb.net/test
       DB_NAME: test
     depends_on:
       - mongo_db
+
+# client service
+  client:
+    build: ./client-ecommerce
+    ports:
+    - 3000:3000
+    environment:
+      PORT: 3000
 
 volumes:
   mongo_db: {}
