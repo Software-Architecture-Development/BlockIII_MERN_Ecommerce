@@ -3,7 +3,10 @@ import styled from "styled-components";
 import { login } from "../redux/apiCalls";
 import { mobile } from "../responsive";
 import { useDispatch, useSelector } from "react-redux";
-
+import {
+  Nav
+ } from "react-bootstrap";
+ 
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
@@ -96,9 +99,12 @@ const Login = () => {
           <Button onClick={handleClick} disabled={isFetching}>
             LOGIN
           </Button>
-          {/* {error && <Error>Something went wrong...</Error>} */}
+          {console.log("error", isFetching, error)}
+          {/* {error === false ? <Error>Something went wrong...</Error>:""} */}
           <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
+          <Nav.Link href="/register">
           <Link>CREATE A NEW ACCOUNT</Link>
+          </Nav.Link>
         </Form>
       </Wrapper>
     </Container>
