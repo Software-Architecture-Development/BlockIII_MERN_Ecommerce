@@ -90,10 +90,10 @@ const Navbar = () => {
           <Logo> ECOMMERCE.</Logo>
         </Center>
         <Right>
-        <Nav.Link href="/register">
+        <Nav.Link href="/register" style={{textDecoration:"none"}}>
           <MenuItem>REGISTER</MenuItem>
           </Nav.Link>
-          <Nav.Link href="/login">
+          <Nav.Link href="/login" style={{textDecoration:"none"}}>
           <MenuItem>SIGN IN</MenuItem>
           </Nav.Link>
           <MenuItem>
