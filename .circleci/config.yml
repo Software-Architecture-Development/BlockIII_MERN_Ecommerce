@@ -1,0 +1,82 @@
+version: 2.1
+
+orbs:
+  docker: circleci/docker@2.1.1
+  azure-aks: circleci/azure-aks@0.3.0
+  kubernetes: circleci/kubernetes@1.3.0
+  
+  
+
+jobs:
+  aks-deploy:
+    executor: azure-aks/default
+    parameters:
+      cluster-name:
+        description: |
+          Name of the AKS cluster
+        type: string
+      resource-group:
+        description: |
+          Resource group that the cluster is in
+        type: string
+    steps:
+      - checkout
+      - run:
+          name: Pull Updated code from repo
+          command: git pull origin $CIRCLE_BRANCH
+      - azure-aks/update-kubeconfig-with-credentials:
+          cluster-name: << parameters.cluster-name >>
+          install-kubectl: true
+          perform-login: true
+          resource-group: << parameters.resource-group >>
+      - kubernetes/create-or-update-resource:
+          resource-file-path: manifests/$APP_NAME.yaml
+          resource-name: kustomization/$APP_NAME
+
+  bump-docker-tag-kustomize:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - run:
+          name: Install kustomize
+          command: |
+            URL=https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/v4.5.2/kustomize_v4.5.2_linux_amd64.tar.gz
+            curl -L $URL | tar zx
+            [ -w /usr/local/bin ] && SUDO="" || SUDO=sudo
+            $SUDO chmod +x ./kustomize
+            $SUDO mv ./kustomize /usr/local/bin
+      - checkout
+      - run:
+          name: Bump Docker Tag
+          command: |
+            cd manifests
+            kustomize edit set image $APP_NAME=$DOCKER_LOGIN/$APP_NAME:$CIRCLE_SHA1
+            kustomize build . > $APP_NAME.yaml
+      - add_ssh_keys:
+          fingerprints:
+            - "$SSH_FINGERPRINT"
+      - run:
+          name: Commit & Push to GitHub
+          command: |
+            git config user.email "$GITHUB_EMAIL"
+            git config user.name "CircleCI User"
+            git checkout $CIRCLE_BRANCH           
+            git add manifests/$APP_NAME.yaml
+            git add manifests/kustomization.yaml
+            git commit -am "Bumps docker tag [skip ci]"
+            git push origin $CIRCLE_BRANCH
+
+workflows:
+  Deploy-App-on-AKS:
+    jobs:
+      - docker/publish:
+          image: $DOCKER_LOGIN/$APP_NAME
+          tag: $CIRCLE_SHA1,latest
+      - bump-docker-tag-kustomize:
+          requires:
+            - docker/publish
+      - aks-deploy:
+          cluster-name: $CLUSTER_NAME
+          resource-group: $RESOURCE_GROUP
+          requires:
+            - bump-docker-tag-kustomize

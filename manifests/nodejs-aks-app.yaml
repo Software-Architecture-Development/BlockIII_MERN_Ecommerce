@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    name: nodejs
+  name: nodejs
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: nodejs
+  name: nodejs
+  namespace: nodejs
+spec:
+  ports:
+  - port: 80
+    targetPort: 1337
+  selector:
+    app: nodejs
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nodejs
+  name: nodejs
+  namespace: nodejs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nodejs
+  template:
+    metadata:
+      labels:
+        app: nodejs
+    spec:
+      containers:
+      - image: rahulrajeev8/nodejs-aks-app:da4343994111550ecfc4547665a7474e4e40d11f
+        name: nodejs-aks-app
+        ports:
+        - containerPort: 1337
+          name: http
+      nodeSelector:
+        beta.kubernetes.io/os: linux
