@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from "styled-components";
 import { mobile } from "../responsive";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { register } from '../redux/apiCalls';
+
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
@@ -57,22 +61,37 @@ const Button = styled.button`
 `;
 
 const Register = () => {
+  
+  const [name, setName] = useState("");
+  const [lastname, setLastName] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirm_password, setConfirmPassword] = useState("");
+  const dispatch = useDispatch();
+
+  const handleClick = (e) => {
+    console.log(e.target.value); 
+    console.log(name, lastname, username,email,  password, confirm_password );  
+    register(dispatch, {name, lastname, username,email,  password, confirm_password });
+    e.preventDefault();
+  };
   return (
     <Container>
       <Wrapper>
         <Title>CREATE AN ACCOUNT</Title>
         <Form>
-          <Input placeholder="name" />
-          <Input placeholder="last name" />
-          <Input placeholder="username" />
-          <Input placeholder="email" />
-          <Input placeholder="password" />
-          <Input placeholder="confirm password" />
+          <Input placeholder="name" onChange={(e) => setName(e.target.value)}/>
+          <Input placeholder="lastname" onChange={(e) => setLastName(e.target.value)} />
+          <Input placeholder="username" onChange={(e) => setUsername(e.target.value)}/>
+          <Input placeholder="email" onChange={(e) => setEmail(e.target.value)}/>
+          <Input placeholder="password"  type="password" onChange={(e) => setPassword(e.target.value)}/>
+          <Input placeholder="confirm_password"  type="password" onChange={(e) => setConfirmPassword(e.target.value)}/>
           <Agreement>
           I hereby consent to the processing of the personal data  and declare my
            agreement with the <b>DATA PROTECTION REGULATIONS</b>
           </Agreement>      
-          <Button>REGISTER</Button>  
+          <Button onClick={handleClick}>REGISTER</Button>  
         </Form>
       </Wrapper>
     </Container>
