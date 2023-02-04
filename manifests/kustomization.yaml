@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- deployment.yaml
+- service.yaml
+- namespace.yaml
+namespace: nodejs
+images:
+- name: nodejs-aks-app
+  newName: rahulrajeev8/nodejs-aks-app
+  newTag: da4343994111550ecfc4547665a7474e4e40d11f
