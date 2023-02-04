@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import Products1 from "../components/Products1";
+//import Products1 from "../components/Products1";
 import Footer from "../components/Footer";
 import { mobile } from "../responsive";
 import { useLocation } from "react-router";
 import { useState } from "react";
+import Products from "../components/Products";
 
 const Container = styled.div``;
 
@@ -87,7 +88,7 @@ const ProductList = () => {
           </Select>
         </Filter>
       </FilterContainer>
-      <Products1 cat={cat} filters={filters} sort={sort} />
+      <Products cat={cat} filters={filters} sort={sort} />
       <Footer />
     </Container>
   );

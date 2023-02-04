@@ -3,6 +3,9 @@ import styled from "styled-components";
 import { login } from "../redux/apiCalls";
 import { mobile } from "../responsive";
 import { useDispatch, useSelector } from "react-redux";
+import jwt_decode from "jwt-decode"
+
+
 
 const Container = styled.div`
   width: 100vw;
@@ -79,6 +82,38 @@ const Login = () => {
     login(dispatch, { username, password });
     e.preventDefault();
   };
+
+  //google auth
+  const [user, setUser] = useState({});
+    
+  function handleCallbackResponse(response){
+      
+      console.log("Encoded JWT ID token: " + response.credential);
+      var userObject = jwt_decode(response.credential);
+      console.log(userObject);
+      setUser(userObject);
+      document.getElementById("signInDiv").hidden = true;
+  
+    }
+  
+    function handlesignOut(event){
+      setUser({});
+      document.getElementById("signInDiv").hidden = false;
+    }
+    window.onload = () => {
+      window.google.accounts.id.initialize({
+        client_id: "1051679490979-41okr52q2vnc3k6ps6c7c0qs43800191.apps.googleusercontent.com",
+        callback: handleCallbackResponse
+  
+        });
+  
+        window.google.accounts.id.renderButton(
+          document.getElementById("signInDiv"),
+          { type: "icon", size: "large"}
+        );
+  
+        window.google.accounts.id.prompt();
+    }
   return (
     <Container>
       <Wrapper>
@@ -96,6 +131,7 @@ const Login = () => {
           <Button onClick={handleClick} disabled={isFetching}>
             LOGIN
           </Button>
+          <div id="signInDiv"></div>
           {/* {error && <Error>Something went wrong...</Error>} */}
           <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
           <Link>CREATE A NEW ACCOUNT</Link>
