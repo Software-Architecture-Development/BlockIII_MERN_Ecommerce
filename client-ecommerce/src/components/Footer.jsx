@@ -109,7 +109,7 @@ const Footer = () => {
         <FmdGoodIcon style={{marginRight: "10px"}}/> 532, Heidelberg Bismarkplatz Germany
         </ContactDetails>
         <ContactDetails>
-        <CallIcon style={{marginRight: "10px"}}/> +49-151526263O
+        <CallIcon style={{marginRight: "10px"}}/> +49-1515262630
         </ContactDetails>
         <ContactDetails>
          <MailIcon style={{marginRight: "10px"}}/> abc@gmail.com
