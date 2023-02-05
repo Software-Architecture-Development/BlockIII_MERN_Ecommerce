@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import ArrowLeftOutlinedIcon from '@mui/icons-material/ArrowLeftOutlined';
 import ArrowRightOutlinedIcon from '@mui/icons-material/ArrowRightOutlined';
 import { carouselItems } from '../data';
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
 width: 100%;
@@ -72,6 +73,11 @@ cursor: pointer;
 `
 const Carousel = () => {
 const [carouselIndex, setCarouselIndex] =useState(0);
+let navigate = useNavigate(); 
+  const routeChange = () =>{ 
+    let path = `/products`; 
+    navigate(path);
+  }
 
  const handleClick = (imgDirection) =>{
      if(imgDirection ==="right"){
@@ -95,7 +101,7 @@ const [carouselIndex, setCarouselIndex] =useState(0);
           <DetailsContainer>
           <Title>{item.title}</Title>
           <Description>{item.desc}</Description>
-          <Button>SHOP NOW</Button>
+          <Button onClick={routeChange}> SHOP NOW </Button>
           </DetailsContainer>
           </Slide>     
         ))}   
