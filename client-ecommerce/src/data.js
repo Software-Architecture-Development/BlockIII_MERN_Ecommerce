@@ -54,21 +54,25 @@ export const sliderItems = [
       id: 1,
       img: "https://cdn.pixabay.com/photo/2015/09/05/20/14/guy-925008_1280.jpg",
       title: "LOUNGEWEAR LOVE",
+      cat:"men"
     },
     {
       id: 2,
       img: "https://cdn.pixabay.com/photo/2017/08/10/06/56/boy-2619201_1280.jpg",
       title: "SHIRT FASHION ",
+      cat:"men"
     },
     {
       id: 3,
       img:"https://cdn.pixabay.com/photo/2017/08/01/11/48/woman-2564660_1280.jpg",
       title: "LIGHT JACKETS",
+      cat:"coat"
     },
     {
       id: 4,
       img: "https://cdn.pixabay.com/photo/2019/12/23/08/15/orange-jacket-4714097_1280.jpg",
       title: "WOOLEN SHIRTS",
+      cat:"shirt"
     },
   ];
 

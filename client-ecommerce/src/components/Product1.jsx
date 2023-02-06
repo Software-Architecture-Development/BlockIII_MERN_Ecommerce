@@ -4,6 +4,9 @@ import {
     ShoppingCartOutlined,
   } from "@material-ui/icons";
   import styled from "styled-components";
+  import {
+    Nav
+   } from "react-bootstrap";
   
   const Info = styled.div`
     opacity: 0;
@@ -75,7 +78,9 @@ import {
             <ShoppingCartOutlined />
           </Icon>
           <Icon>
+          <Nav.Link href={`/product/${item._id}`}>
             <SearchOutlined />
+            </Nav.Link>
           </Icon>
           <Icon>
             <FavoriteBorderOutlined />

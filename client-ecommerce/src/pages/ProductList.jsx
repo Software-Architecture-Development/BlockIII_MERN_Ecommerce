@@ -5,6 +5,7 @@ import { mobile } from "../responsive";
 import { useLocation } from "react-router";
 import { useState } from "react";
 import Products from "../components/Products";
+import Products1 from "../components/Products1";
 
 const Container = styled.div``;
 
@@ -38,9 +39,11 @@ const Option = styled.option``;
 
 const ProductList = () => {
   const location = useLocation();
+  console.log("hello")
+  console.log(location.pathname.split("/")[2])
   const cat = location.pathname.split("/")[2];
   const [filters,setFilters] = useState({});
-  const [sort,setSort] = useState({newest});
+  const [sort,setSort] = useState("newest");
 
 
   const handleFilters = (e) => {
@@ -88,7 +91,8 @@ const ProductList = () => {
           </Select>
         </Filter>
       </FilterContainer>
-      <Products cat={cat} filters={filters} sort={sort} />
+      <Products1 cat={cat} filters={filters} sort={sort} />
+      {/* <Products1 /> */}
       <Footer />
     </Container>
   );

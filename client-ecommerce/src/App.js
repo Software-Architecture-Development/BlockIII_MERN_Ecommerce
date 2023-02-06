@@ -4,6 +4,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import Register from './pages/Register';
 import Login from './pages/Login';
 import ProductList from './pages/ProductList';
+import Product from './pages/Product';
 
 const App = () => {
   return (
@@ -13,7 +14,8 @@ const App = () => {
           <Route path="/" element={<Home/>} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/productlist" element={<ProductList />} />
+          <Route path="/products/:category" element={<ProductList />} />
+          <Route path="/product/:id" element={<Product />} />
         </Routes>
       </div>
     </BrowserRouter>
