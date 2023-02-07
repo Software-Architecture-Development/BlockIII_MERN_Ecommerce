@@ -7,13 +7,20 @@ const CryptoJS = require("crypto-js");
 
 //REGISTER
 router.post("/register", async (req, res) => {
+    console.log("auth", req);
     const newUser = new User({
+      name:req.body.name,
+      lastname:req.body.lastname,
       username: req.body.username,
       email: req.body.email,
+      name: req.body.name,
+      lastname: req.body.lastname,
+      confirm_password: req.body.confirm_password,
       password: CryptoJS.AES.encrypt(
         req.body.password,
         process.env.PASS_SECRET
       ).toString(),
+      confirm_password:req.body.confirm_password,
     });
   
     try {

@@ -1,0 +1,55 @@
+name: DEPLOY TO DOCKERHUB
+
+on:
+  push:
+    branches: [ "rahul_dev" ]
+  pull_request:
+    branches: [ "rahul_dev" ]
+
+
+#
+env:
+  DOCKER_USERE: ${{ secrets.DOCKER_USER }}
+  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+  DOCKER_REPO: ${{ secrets.DOCKER_REPO }}
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+  
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Build and Tag Docker Image
+        run: |-
+          docker compose create
+
+      - name: Docker Login
+        env:
+          DOCKER_USER: ${{secrets.DOCKER_USER}}
+          DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+        run: |
+          docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+
+      - name: Build the Docker api image
+        run: docker tag blockiii_mern_ecommerce-api ${{secrets.DOCKER_USER}}/${{secrets.DOCKER_REPO}}:server
+        
+      - name: Docker Push
+        run: docker push ${{secrets.DOCKER_USER}}/${{secrets.DOCKER_REPO}}:server
+
+      - name: Build the Docker ecommerce-client image
+        run: docker tag blockiii_mern_ecommerce-client ${{secrets.DOCKER_USER}}/${{secrets.DOCKER_REPO}}:client
+        
+      - name: Docker Push
+        run: docker push ${{secrets.DOCKER_USER}}/${{secrets.DOCKER_REPO}}:client
+
+
+
+    

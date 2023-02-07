@@ -5,6 +5,8 @@ import { useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from '../redux/apiCalls';
 import { useNavigate } from "react-router-dom";
+
+
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
@@ -42,11 +44,6 @@ const Input = styled.input`
   min-width: 35%;
   margin: 20px 10px 0px 0px;
   padding: 10px;
-`;
-
-const Agreement = styled.span`
-  font-size: 14px;
-  margin: 20px 0px;
 `;
 
 const Button = styled.button`
@@ -89,6 +86,7 @@ const Register = () => {
   useEffect(()=>{
     console.log(formErrors)
         if(Object.keys(formErrors).length === 0 && isSubmit){
+          console.log("noerrors")
         }
   }, [formErrors])
 
