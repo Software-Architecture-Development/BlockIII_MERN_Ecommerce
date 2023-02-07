@@ -7,6 +7,7 @@ import ProductList from './pages/ProductList';
 import Product from './pages/Product';
 import ProductDetails from './containers/ProductDetails';
 import ProductListing from './containers/ProductListing';
+import MonProducts from './pages/MonProducts';
 
 
 const App = () => {
@@ -14,11 +15,12 @@ const App = () => {
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path="/" element={<ProductListing />} />
+          <Route path="/" element={<ProductList />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/product/:productId" element={<ProductDetails />} />
-          <Route path="/product/:id" element={<Product />} />
+          <Route path="/product/:productId" element={<Product />} />
+          {/* <Route path="/product/:id" element={<Product />} /> */}
+          <Route path="/productdetails" element={<Product />} />
         </Routes>
       </div>
     </BrowserRouter>

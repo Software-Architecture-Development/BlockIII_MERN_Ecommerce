@@ -128,7 +128,7 @@ const Login = () => {
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button onClick={handleClick} disabled={isFetching}>
+          <Button onClick={handleClick} disabled={isFetching} onError={error}>
             LOGIN
           </Button>
           <div id="signInDiv"></div>

@@ -54,6 +54,9 @@ const Wrapper = styled.div`
 
 const ImgContainer = styled.div`
   flex: 1;
+  width: 100%;
+  height: 70vh;
+  object-fit: cover;
 `;
 
 const Image = styled.img`
@@ -176,7 +179,7 @@ const Product = () => {
     useEffect(() => {
       const getProduct = async () => {
         try {
-          const res = await publicRequest.get("/products/find/" + id);
+          const res = await publicRequest.get(`/products/find/${id}`);
           setProduct(res.data);
         } catch {}
       };
@@ -213,17 +216,36 @@ const Product = () => {
       <Wrapper>
       {/* <Slide /> */}
       <ImgContainer>
-         <Image src={product.img} />
-       
+         {/* <Image src={product.img} /> */}
+         <Image src="https://m.media-amazon.com/images/I/61KNBTw4K8S._AC._SR360,460.jpg" />
         </ImgContainer>
         <InfoContainer>
+          {/* <Title>{product.title}</Title> */}
           <Title>{product.title}</Title>
           <Desc>
-          {product.desc}
+          {/* {product.desc} */}
+          Langarmshirt aus 100% Baumwolle Schwarz
           </Desc>
-          <Price>€ {product.price}</Price>
+          {/* <Price>€ {product.price}</Price> */}
+          <Price>€ 29.99</Price>
           <FilterContainer>
+          <Filter>
+              <FilterTitle>Color</FilterTitle>
+              <FilterColor color="black" />
+              <FilterColor color="darkblue" />
+              <FilterColor color="gray" />
+            </Filter>
             <Filter>
+              <FilterTitle>Size</FilterTitle>
+              <FilterSize>
+                <FilterSizeOption>XS</FilterSizeOption>
+                <FilterSizeOption>S</FilterSizeOption>
+                <FilterSizeOption>M</FilterSizeOption>
+                <FilterSizeOption>L</FilterSizeOption>
+                <FilterSizeOption>XL</FilterSizeOption>
+              </FilterSize>
+            </Filter>
+            {/* <Filter>
               <FilterTitle>Color</FilterTitle>
               {product.color?.map((c)=>(
                 <FilterColor color={c} key={c} onClick={()=>setColor(c)}/>
@@ -236,7 +258,7 @@ const Product = () => {
                   <FilterSizeOption key={s}>{s}</FilterSizeOption>
                 ))}
               </FilterSize>
-            </Filter>
+            </Filter> */}
           </FilterContainer>
           <AddContainer>
             <AmountContainer>

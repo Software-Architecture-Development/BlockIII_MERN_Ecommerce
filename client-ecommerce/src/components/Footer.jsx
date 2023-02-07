@@ -72,8 +72,8 @@ const Footer = () => {
   return (
     <Container>
       <Left>
-        <Logo>ECOMMER.</Logo>
-        <Description>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi beatae totam et nobis quae velit, reiciendis eveniet laudantium eligendi nisi suscipit nulla hic unde blanditiis delectus sunt eaque quidem voluptatem quaerat assumenda voluptatum harum placeat porro! Suscipit error accusamus saepe? Modi dolore repudiandae voluptatibus saepe cumque ullam sit velit consectetur!</Description>
+        <Logo>Namaste</Logo>
+        <Description>Namaste Fashion is an Indian clothing online retail store. You can find us on</Description>
       <SocialMedia>
         <Icons>
       <FacebookIcon/>
