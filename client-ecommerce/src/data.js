@@ -76,33 +76,41 @@ export const sliderItems = [
     {
       id:1,
       img:"https://m.media-amazon.com/images/I/61KNBTw4K8S._AC._SR360,460.jpg",
+      title:"Shirt1"
     },
     {
       id:2,
-      img:"https://99designs-start-attachments.imgix.net/alchemy-pictures/2016%2F01%2F26%2F21%2F55%2F20%2F0e390253-6f27-4564-b0ff-95e756d6f3a4%2F192107_jindietf_1_03.png?auto=format&ch=Width%2CDPR&fm=png&w=558&h=669",
+      img:"https://awgikyrvip.cloudimg.io/v7/_media_/media/image/19/ae/42/1284-FrontImage-black.png",
+      title:"Shirt5"
     },
     {
       id:3,
       img:"https://m.media-amazon.com/images/I/61WrmjKbNzS._AC._SR360,460.jpg",
+      title:"Shirt2"
     },
     {
       id:4,
       img:"https://img01.ztat.net/article/spp-media-p1/87c945d06b7842b488f14f1f1fcd6aa0/c693d54378714263a352efe41d3f71bc.jpg?imwidth=300",
+      title:"Jeans"
     },
     {
       id:5,
       img:"https://thumbs.dreamstime.com/b/blue-jeans-isolated-white-background-blue-jeans-isolated-white-126824335.jpg",
+      title:"Jeans2"
     },
     {
       id:6,
       img:"https://assets.vogue.com/photos/6303e996be0e9b0e8c9fc4d9/3:4/w_1280%2Cc_limit/slide_17.jpg",
+      title:"Jeans3"
     },
     {
       id:7,
       img:"https://newwave.de/11398-home_default/mesh-performance-cap-nw.jpg",
+      title:"Cap1"
     },
     {
       id:8,
       img:"https://cdn.shopify.com/s/files/1/0246/0234/5546/products/Encore_Organic_Baseball_Cap-Cap-LDM702043-522722-Olive_Night_Rubber_600x.jpg?v=1670507623",
+      title:"Cap2"
     },
   ]
