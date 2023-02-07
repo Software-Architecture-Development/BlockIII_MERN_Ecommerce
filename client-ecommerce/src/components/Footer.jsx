@@ -72,7 +72,7 @@ const Footer = () => {
   return (
     <Container>
       <Left>
-        <Logo>ECOMMER.</Logo>
+        <Logo>WILKOMMEN</Logo>
         <Description>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi beatae totam et nobis quae velit, reiciendis eveniet laudantium eligendi nisi suscipit nulla hic unde blanditiis delectus sunt eaque quidem voluptatem quaerat assumenda voluptatum harum placeat porro! Suscipit error accusamus saepe? Modi dolore repudiandae voluptatibus saepe cumque ullam sit velit consectetur!</Description>
       <SocialMedia>
         <Icons>
