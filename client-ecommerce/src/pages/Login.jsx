@@ -1,12 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { login } from "../redux/apiCalls";
 import { mobile } from "../responsive";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Nav
- } from "react-bootstrap";
- 
+import {Nav} from "react-bootstrap";
+ import { useNavigate } from "react-router-dom";
+
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
@@ -74,35 +73,62 @@ const Error = styled.span`
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [formErrors, setFormErrors] =useState({})
+  const [isSubmit, setIsSubmit] =useState(false);
   const dispatch = useDispatch();
   const { isFetching, error } = useSelector((state) => state.user);
+  let navigate = useNavigate();
 
-  const handleClick = (e) => {
-    console.log(e.target.value);  
-    login(dispatch, { username, password });
+   const handleSubmit =(e) =>{
+     setFormErrors(validate());
+     setIsSubmit(true);
+     if(Object.keys(formErrors).length === 0 && isSubmit){
+        login(dispatch, { username, password });
+        navigate("/home");
+     }
     e.preventDefault();
-  };
+   }
+   
+   useEffect(() =>{
+    console.log(formErrors)
+    if(Object.keys(formErrors).length === 0 && isSubmit){
+    }
+   }, [formErrors])
+
+   const validate =() =>{
+       const errors ={}
+       if(!username){
+        errors.username = "Username required!"
+       } 
+       if(!password){
+        errors.password = "Password required!"
+       }
+        return errors
+   }
+
   return (
     <Container>
       <Wrapper>
         <Title>SIGN IN</Title>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <Input
             placeholder="username"
             onChange={(e) => setUsername(e.target.value)}
+            value={username}
+
           />
+           <p style={{color:"red"}}>{formErrors.username}</p>
           <Input
             placeholder="password"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
+            value={password}
           />
-          <Button onClick={handleClick} disabled={isFetching}>
+           <p style={{color:"red"}}>{formErrors.password}</p>
+          <Button>
             LOGIN
           </Button>
-          {console.log("error", isFetching, error)}
-          {/* {error === false ? <Error>Something went wrong...</Error>:""} */}
-          <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
-          <Nav.Link href="/register" >
+          <Nav.Link href="/register" style={{textDecoration:"none"}}>
           <Link >CREATE A NEW ACCOUNT</Link>
           </Nav.Link>
         </Form>
