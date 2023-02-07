@@ -40,7 +40,7 @@ jobs:
         run: docker tag blockiii_mern_ecommerce-api ${{secrets.DOCKER_USER}}/${{secrets.DOCKER_REPO}}:server
         
       - name: Docker Push
-        run: docker push ${{secrets.DOCKER_USER}}/blockiii_mern_ecommerce:server
+        run: docker push ${{secrets.DOCKER_USER}}/${{secrets.DOCKER_REPO}}:server
 
       - name: Build the Docker ecommerce-client image
         run: docker tag blockiii_mern_ecommerce-client ${{secrets.DOCKER_USER}}/${{secrets.DOCKER_REPO}}:client
