@@ -10,11 +10,11 @@ const {
 //CREATE CART
   
   router.post("/", verifyToken, async (req, res) => {
-    const newOrder = new Order(req.body);
+    const newCart = new Cart(req.body);
   
     try {
-      const savedOrder = await newOrder.save();
-      res.status(200).json(savedOrder);
+      const savedCart = await newCart.save();
+      res.status(200).json(savedCart);
     } catch (err) {
       res.status(500).json(err);
     }
@@ -23,14 +23,14 @@ const {
 //UPDATE CART
   router.put("/:id", verifyTokenAndAdmin, async (req, res) => {
     try {
-      const updatedOrder = await Order.findByIdAndUpdate(
+      const updatedCart = await Cart.findByIdAndUpdate(
         req.params.id,
         {
           $set: req.body,
         },
         { new: true }
       );
-      res.status(200).json(updatedOrder);
+      res.status(200).json(updatedCart);
     } catch (err) {
       res.status(500).json(err);
     }
@@ -39,8 +39,8 @@ const {
 //DELETE CART
   router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
     try {
-      await Order.findByIdAndDelete(req.params.id);
-      res.status(200).json("Order has been deleted...");
+      await Cart.findByIdAndDelete(req.params.id);
+      res.status(200).json("Cart has been deleted...");
     } catch (err) {
       res.status(500).json(err);
     }
