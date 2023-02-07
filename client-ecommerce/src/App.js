@@ -4,16 +4,18 @@ import { Routes, Route, Link } from "react-router-dom";
 import Register from './pages/Register';
 import Login from './pages/Login';
 import ProductList from './pages/ProductList';
+import Products from './components/Products';
+;
 
 const App = () => {
   return (
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<Home/>} />
+          <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/products" element={<ProductList />} />
+          <Route path="/products" element={<Products />} />
         </Routes>
       </div>
     </BrowserRouter>
