@@ -1,0 +1,40 @@
+on:
+  push:
+    branches: [ "rahul_dev" ]
+  pull_request:
+    branches: [ "rahul_dev" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+  
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Build and Tag Docker Image
+        run: |-
+          docker compose create
+
+      - name: Docker Login
+        env:
+          DOCKER_USER: ${{secrets.DOCKER_USER}}
+          DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+        run: |
+          docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+
+      - name: Build the Docker api image
+        run: docker tag blockiii_mern_ecommerce-api rahulrajeev8/blockiii_mern_ecommerce:server
+        
+      - name: Docker Push
+        run: docker push rahulrajeev8/blockiii_mern_ecommerce:server
+
+
+
+    
