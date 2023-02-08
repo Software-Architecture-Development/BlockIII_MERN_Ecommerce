@@ -29,5 +29,12 @@ export const getProducts = async (dispatch) => {
     dispatch(getProductSuccess(res.data));
   } catch (err) {
     dispatch(getProductFailure());
-  }     
+  }    
+  
+export const register = async (dispatch, user) => {
+  console.log("18", user)
+    const res = await publicRequest.post("/auth/register", user);
+    console.log("21", res)
+    dispatch(registerSuccess(res.data));
+     
 };
