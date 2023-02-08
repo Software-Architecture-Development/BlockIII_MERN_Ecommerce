@@ -25,13 +25,13 @@ const Input = styled.input`
   border-width: 0px;
   width:90%;
 `;
-const Products = () => {
+
+  const Products = () => {
   const [filter, setFilter] =useState("")
 
    const searchText =(e) =>{
     setFilter(e.target.value)
    }
-
 
    let dataSearch = trendingProducts.filter(item =>{
       return Object.keys(item).some(key =>

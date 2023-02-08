@@ -1,7 +1,7 @@
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 import { useState } from "react";
 import styled from "styled-components";
-import { slider } from "../data";
+import { carouselItems } from "../data";
 import { mobile } from "../responsive";
 
 
@@ -61,29 +61,6 @@ const Image = styled.img`
   width: 100%;
 `;
 
-const InfoContainer = styled.div`
-  flex: 1;
-  padding: 50px;
-`;
-
-const Title = styled.h1`
-  font-size: 70px;
-`;
-
-const Desc = styled.p`
-  margin: 50px 0px;
-  font-size: 20px;
-  font-weight: 500;
-  letter-spacing: 3px;
-`;
-
-const Button = styled.button`
-  padding: 10px;
-  font-size: 20px;
-  background-color: transparent;
-  cursor: pointer;
-`;
-
 const Slide = () => {
   const [slideIndex, setSlideIndex] = useState(0);
   const handleClick = (direction) => {
@@ -100,7 +77,7 @@ const Slide = () => {
         <ArrowLeftOutlined />
       </Arrow>
       <Wrapper slideIndex={slideIndex}>
-        {slider.map((item) => (
+        {carouselItems.map((item) => (
           <Slide1 bg={item.bg} key={item.id}>
             <ImgContainer>
               <Image src={item.img} />

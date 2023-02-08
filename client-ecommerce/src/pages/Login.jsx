@@ -13,7 +13,8 @@ const Container = styled.div`
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    url("https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+    url("https://cdn.pixabay.com/photo/2019/07/14/15/34/background-4337375_1280.jpg")
+    // url("https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
       center;
   background-size: cover;
   display: flex;
@@ -84,7 +85,10 @@ const Login = () => {
      setIsSubmit(true);
      if(Object.keys(formErrors).length === 0 && isSubmit){
         login(dispatch, { username, password });
-        navigate("/home");
+        setTimeout(() =>{
+          navigate("/home");
+        }, 1000)
+        
      }
     e.preventDefault();
    }
@@ -106,9 +110,10 @@ const Login = () => {
         return errors
    }
 
-  return (
+  return (<>
     <Container>
       <Wrapper>
+    {Object.keys(formErrors).length === 0 && isSubmit ? <h2 style ={{color:"cornflowerblue", marginLeft:"35%"}}>Logged In</h2>:""}
         <Title>SIGN IN</Title>
         <Form onSubmit={handleSubmit}>
           <Input
@@ -134,6 +139,7 @@ const Login = () => {
         </Form>
       </Wrapper>
     </Container>
+    </>
   );
 };
 
