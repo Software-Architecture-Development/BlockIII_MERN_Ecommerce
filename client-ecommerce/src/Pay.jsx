@@ -36,7 +36,6 @@ return (
 
       <stripecheckout 
       name= "Namaste"
-      image=
       billingAddress
       shipingAddress
       description = "your total is 20€"
