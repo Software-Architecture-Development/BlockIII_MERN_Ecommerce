@@ -1,4 +1,5 @@
 frontend technologies used React
 Backend technologies nodejs
 and used mongodb for cloud 
-postman used to test API
+postman used to test api
+For payment we have used stripe 
