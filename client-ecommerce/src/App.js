@@ -9,22 +9,25 @@ import ProductDetails from './containers/ProductDetails';
 import ProductListing from './containers/ProductListing';
 import MonProducts from './pages/MonProducts';
 
+import Products from './components/Products';
+;
 
 const App = () => {
   return (
     <BrowserRouter>
       <div className="App">
         <Routes>
-          {/* <Route path="/" element={<ProductList />} /> */}
-          <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<Home/>} />
+          <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/products" element={<Products />} />
           <Route path="/product/:productId" element={<ProductDetails />} />
           {/* <Route path="/product/:id" element={<Product />} /> */}
           <Route path="/productdetails" element={<Product />} />
         </Routes>
       </div>
     </BrowserRouter>
-  );
+  );    
 }
 
 export default App;

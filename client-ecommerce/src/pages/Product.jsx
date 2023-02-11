@@ -216,36 +216,18 @@ const Product = () => {
       <Wrapper>
       {/* <Slide /> */}
       <ImgContainer>
-         {/* <Image src={product.img} /> */}
-         <Image src="https://m.media-amazon.com/images/I/61KNBTw4K8S._AC._SR360,460.jpg" />
+         <Image src={product.img} />
         </ImgContainer>
         <InfoContainer>
           {/* <Title>{product.title}</Title> */}
           <Title>{product.title}</Title>
           <Desc>
-          {/* {product.desc} */}
-          Langarmshirt aus 100% Baumwolle Schwarz
+          {product.desc}
           </Desc>
-          {/* <Price>€ {product.price}</Price> */}
-          <Price>€ 29.99</Price>
+          <Price>€ {product.price}</Price>
+         
           <FilterContainer>
-          <Filter>
-              <FilterTitle>Color</FilterTitle>
-              <FilterColor color="black" />
-              <FilterColor color="darkblue" />
-              <FilterColor color="gray" />
-            </Filter>
             <Filter>
-              <FilterTitle>Size</FilterTitle>
-              <FilterSize>
-                <FilterSizeOption>XS</FilterSizeOption>
-                <FilterSizeOption>S</FilterSizeOption>
-                <FilterSizeOption>M</FilterSizeOption>
-                <FilterSizeOption>L</FilterSizeOption>
-                <FilterSizeOption>XL</FilterSizeOption>
-              </FilterSize>
-            </Filter>
-            {/* <Filter>
               <FilterTitle>Color</FilterTitle>
               {product.color?.map((c)=>(
                 <FilterColor color={c} key={c} onClick={()=>setColor(c)}/>
@@ -258,7 +240,7 @@ const Product = () => {
                   <FilterSizeOption key={s}>{s}</FilterSizeOption>
                 ))}
               </FilterSize>
-            </Filter> */}
+            </Filter>
           </FilterContainer>
           <AddContainer>
             <AmountContainer>

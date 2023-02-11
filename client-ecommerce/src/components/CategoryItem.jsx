@@ -4,6 +4,7 @@ import {
   Nav
  } from "react-bootstrap";
  import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Container =styled.div`
   flex:1;
@@ -45,6 +46,11 @@ const Button = styled.button`
 `
 
 const CategoryItem = ({item}) => {
+  let navigate = useNavigate(); 
+  const routeChange = () =>{ 
+    let path = `/products`; 
+    navigate(path);
+  }
   return (
     <Container key={item.id}>
       {console.log(item, item.img, item.cat)}
@@ -53,7 +59,7 @@ const CategoryItem = ({item}) => {
       <Image src={item.img}/>
       <Details>
       <Title>{item.title}</Title>
-      <Button>SHOP NOW</Button>
+      <Button onClick={routeChange}> SHOP NOW </Button>
       </Details>
       {/* </Link> */}
       </Nav.Link>
