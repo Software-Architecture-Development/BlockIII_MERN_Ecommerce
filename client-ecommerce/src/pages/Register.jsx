@@ -123,6 +123,7 @@ const Register = () => {
      return (
     <Container>
       <Wrapper>
+      {Object.keys(formErrors).length === 0 && isSubmit ? <h2 style ={{color:"cornflowerblue", marginLeft:"34%"}}>Registered</h2>:""}
         <Title>CREATE AN ACCOUNT</Title>
         <Form onSubmit={handleSubmit}>
           <div>
