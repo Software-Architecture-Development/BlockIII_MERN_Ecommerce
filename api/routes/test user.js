@@ -81,7 +81,18 @@ describe("Users Router", () => {
       expect(res.body).toEqual({});
     });
   });
+  const res = await request(app).delete(`/api/users/${user._id}`);
+      
+      expect(res.status).toBe(200);
+      expect(res.text).toBe("User has been deleted...");
+    });
+    
+    it("should return a 500 error if the delete fails", async () => {
+      const res = await request(app).delete("/api/users/invalidid");
+      
+      expect(res.status).toBe(500);
+      expect(res.body).toEqual({});
+    });
+  });
   
-
-
-
+  

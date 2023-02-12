@@ -29,3 +29,4 @@ describe('POST /register', () => {
             password: expect.any(String),
             confirm_password: 'password'
         });
+        
