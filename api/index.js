@@ -30,6 +30,6 @@ app.use("/api/order", orderRoute);
 
 
 app.listen(process.env.PORT || 5000, () => {
-    console.log('backend server is running!');
+    console.log('backends server is running!');
 
 });

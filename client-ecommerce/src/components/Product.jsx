@@ -4,7 +4,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import { Link } from 'react-router-dom';
-
+import { carouselItems } from '../data';
 const Details =styled.div`
   opacity: 0;
   width: 100%;
@@ -58,8 +58,11 @@ transition: all 0.5s ease;
 `
 const Product = ({item}) => {
   return (
-    <Container>
-      <Image src= {item.img}/>
+    <Container> 
+    {carouselItems.map((data) =>{
+      return (<>
+      {/* <Image src= {item.img}/> */}
+      <Image src= {data.img}/>
       <Details>
         <Icon>
          <ShoppingCartOutlinedIcon/>
@@ -73,6 +76,7 @@ const Product = ({item}) => {
          <FavoriteBorderOutlinedIcon/>
         </Icon>
       </Details>
+      </>)})}
     </Container>
   )
 }

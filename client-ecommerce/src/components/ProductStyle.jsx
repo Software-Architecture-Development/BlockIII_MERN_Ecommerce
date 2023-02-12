@@ -4,6 +4,7 @@ import {
     ShoppingCartOutlined,
   } from "@material-ui/icons";
   import styled from "styled-components";
+  import { useNavigate } from "react-router-dom";
   
   const Info = styled.div`
     opacity: 0;
@@ -58,11 +59,16 @@ import {
   `;
   
   const ProductStyle = ({ item }) => {
-    return (
+    let navigate = useNavigate(); 
+    const routeChange = () =>{ 
+    let path = `/cart`; 
+    navigate(path);
+  }
+    return (<>
       <Container>
         <Image src={item.img} />
         <Info>
-          <Icon>
+          <Icon onClick={routeChange}>
             <ShoppingCartOutlined />
           </Icon>
           <Icon>
@@ -74,7 +80,7 @@ import {
         </Info>
         <p style={{marginLeft:"5px", fontSize:"25px"}}>{item.title}</p>
       </Container>
-      
+      </>
     );
   };
   

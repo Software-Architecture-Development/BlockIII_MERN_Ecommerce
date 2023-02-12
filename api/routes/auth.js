@@ -7,20 +7,13 @@ const CryptoJS = require("crypto-js");
 
 //REGISTER
 router.post("/register", async (req, res) => {
-    console.log("auth", req);
     const newUser = new User({
-      name:req.body.name,
-      lastname:req.body.lastname,
       username: req.body.username,
       email: req.body.email,
-      name: req.body.name,
-      lastname: req.body.lastname,
-      confirm_password: req.body.confirm_password,
       password: CryptoJS.AES.encrypt(
         req.body.password,
         process.env.PASS_SECRET
       ).toString(),
-      confirm_password:req.body.confirm_password,
     });
   
     try {
@@ -46,7 +39,7 @@ router.post("/register", async (req, res) => {
 
 //CHECK VALID PASSWORD
       OriginalPassword !== req.body.password &&
-        res.status(401).json("Wrong credentials!");
+        res.status(401).json({message:"Wrong credentials!"});
 
 //SIGNING JWT TOKEN
       const accessToken = jwt.sign(
@@ -59,9 +52,9 @@ router.post("/register", async (req, res) => {
       );
   
       const { password, ...others } = user._doc;
-  
-      res.status(200).json({...others, accessToken});
-    } catch (err) {
+      res.status(200).json({...others, accessToken, message:"LoggedIn"});
+    } 
+    catch (err) {
       res.status(500).json(err);
     }
   });

@@ -55,7 +55,7 @@ const Button = styled.button`
   cursor: pointer;
   align-items: center;
   margin-top:20px;
-  ${mobile({ padding: "20px 20px" })}
+  ${mobile({ padding: "10px 5px" })}
 `;
 
 

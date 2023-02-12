@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Slide from "../components/Slide";
 import { mobile } from "../responsive";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
-import { useState } from "react";
+// import { useState } from "react";
 import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

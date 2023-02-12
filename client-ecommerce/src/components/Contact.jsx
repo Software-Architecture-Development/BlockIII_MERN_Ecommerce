@@ -1,6 +1,7 @@
 import React from 'react'
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 import styled from 'styled-components';
+import { mobile } from '../responsive';
 
 const Container = styled.div`
 height:60vh;
@@ -18,6 +19,7 @@ const Title = styled.h2`
 const Description = styled.div`
   font-size:20px;
   margin: 7px 0;
+  ${mobile({ textAlign: "center" })}
 `
 const InputContainer = styled.div`
     display:flex;
@@ -25,7 +27,8 @@ const InputContainer = styled.div`
     width:32%;
     height:30px;
     background-color:white;
-    border: 1px solid lightgray
+    border: 1px solid lightgray;
+    ${mobile({ width: "80%" })}
 `
 const Input = styled.input`
    border:none;

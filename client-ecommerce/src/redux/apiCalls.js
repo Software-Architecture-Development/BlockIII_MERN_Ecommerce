@@ -9,9 +9,18 @@ export const login = async (dispatch, user) => {
     console.log("res", res)
     dispatch(loginSuccess(res.data));
   } catch (err) {
+    console.log("error");
     dispatch(loginFailure());
   }     
 };
+
+export const register = async (dispatch, user) => {
+  console.log("18", user)
+    const res = await publicRequest.post("/auth/register", user); 
+    console.log("21", res)
+    dispatch(registerSuccess(res.data));    
+};
+
 
 export const getProducts = async (dispatch) => {
   dispatch(getProductStart());
@@ -21,11 +30,12 @@ export const getProducts = async (dispatch) => {
   } catch (err) {
     dispatch(getProductFailure());
   }    
+}
   
-export const register = async (dispatch, user) => {
-  console.log("18", user)
-    const res = await publicRequest.post("/auth/register", user);
-    console.log("21", res)
-    dispatch(registerSuccess(res.data));
+// export const register = async (dispatch, user) => {
+//   console.log("18", user)
+//     const res = await publicRequest.post("/auth/register", user);
+//     console.log("21", res)
+//     dispatch(registerSuccess(res.data));
      
-};
+// };

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Products1 from "../components/Products1";
+import Products from "../components/Products";
 import Footer from "../components/Footer";
 import { mobile } from "../responsive";
 import { useLocation } from "react-router";
@@ -41,7 +41,7 @@ const ProductList = () => {
   const location = useLocation();
   const cat = location.pathname.split("/")[2];
   const [filters,setFilters] = useState({});
-  const [sort,setSort] = useState({newest});
+  // const [sort,setSort] = useState({newest});
   const dispatch =useDispatch();
   const products =useSelector( state => state.product.products)
 
@@ -87,14 +87,18 @@ const ProductList = () => {
         </Filter>
         <Filter>
           <FilterText>Sort Products:</FilterText>
-          <Select onChange={(e)=> setSort(e.target.value)}>
+          <Select
+          //  onChange={(e)=> setSort(e.target.value)}
+           >
             <Option value="newest">Newest</Option>
             <Option value="asc">Price (asc)</Option>
             <Option value="desc">Price (desc)</Option>
           </Select>
         </Filter>
       </FilterContainer>
-      <Products1 cat={cat} filters={filters} sort={sort} />
+      <Products cat={cat} filters={filters} 
+      // sort={sort} 
+      />
       <Footer />
     </Container>
   );
