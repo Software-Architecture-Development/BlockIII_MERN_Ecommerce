@@ -8,7 +8,7 @@ import Footer from '../components/Footer'
 
 const Home = () => {
   return (
-    <div>
+    <div style={{overflowX:"hidden"}}>
       <Offers/>
       <Navbar/>
       <Carousel/>
