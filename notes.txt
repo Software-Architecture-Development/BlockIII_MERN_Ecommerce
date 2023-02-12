@@ -1,2 +1,5 @@
-backend technologies used nodejs and mongodb
-created cloud on mongo atlas
+frontend technologies used React
+Backend technologies nodejs
+and used mongodb for cloud 
+postman used to test api
+For payment we have used stripe 
