@@ -21,4 +21,47 @@ describe("Test the payment endpoint", () => {
       return callback({ message: "Invalid amount" }, null);
     });
 });
+test("It should respond with a successful payment", async () => {
+    const response = await request(app)
+      .post("/payment")
+      .send({
+        tokenId: "tok_visa",
+        amount: 1000,
+      });
+    expect(response.statusCode).toBe(200);
+    expect(response.body).toHaveProperty("id");
+    expect(response.body.amount).toBe(1000);
+    expect(response.body.currency).toBe("usd");
+  });
+
+  test("It should respond with an error for an invalid amount", async () => {
+    const response = await request(app)
+      .post("/payment")
+      .send({
+        tokenId: "tok_visa",
+        amount: 500,
+      });
+    expect(response.statusCode).toBe(500);
+    expect(response.body.message).toBe("Invalid amount");
+  });
+});
+test("It should respond with a successful payment", async () => {
+    const response = await request(app)
+      .post("/payment")
+      .send({
+        tokenId: "tok_visa",
+        amount: 1000,
+      });
+    expect(response.statusCode).toBe(200);
+    expect(response.body).toHaveProperty("id");
+    expect(response.body.amount).toBe(1000);
+    expect(response.body.currency).toBe("usd");
+  });
+
   
+
+
+
+
+
+
