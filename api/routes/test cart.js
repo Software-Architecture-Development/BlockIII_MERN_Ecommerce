@@ -60,9 +60,8 @@ describe("Cart routes", () => {
       expect(Array.isArray(response.body)).toBe(true);
       expect(response.body.length).toBeGreaterThan(0);
     });
-  });
+   });
 });
-Note: The tests assume that the app object is the express application, and that the code is part of a larger express application. You may need to modify the test code to match your specific application setup.
 
 
 
