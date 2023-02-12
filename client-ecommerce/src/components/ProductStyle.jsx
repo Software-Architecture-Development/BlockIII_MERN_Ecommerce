@@ -36,14 +36,6 @@ import {
     }
   `;
   
-  const Circle = styled.div`
-    width: 250px;
-    height: 150px;
-    border-radius: 50%;
-    background-color: white;
-    position: absolute;
-  `;
-  
   const Image = styled.img`
     height: 75%;
     z-index: 2;
@@ -61,14 +53,13 @@ import {
     transition: all 0.5s ease;
     &:hover {
       background-color: #d3d3d3;
-      transform: scale(1.1);
+      transform: scale(1);
     }
   `;
   
-  const Product1 = ({ item }) => {
+  const ProductStyle = ({ item }) => {
     return (
       <Container>
-        <Circle />
         <Image src={item.img} />
         <Info>
           <Icon>
@@ -81,8 +72,10 @@ import {
             <FavoriteBorderOutlined />
           </Icon>
         </Info>
+        <p style={{marginLeft:"5px", fontSize:"25px"}}>{item.title}</p>
       </Container>
+      
     );
   };
   
-  export default Product1;
+  export default ProductStyle;

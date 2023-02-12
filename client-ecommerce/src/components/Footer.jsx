@@ -72,7 +72,7 @@ const Footer = () => {
   return (
     <Container>
       <Left>
-        <Logo>ECOMMER.</Logo>
+        <Logo>WILKOMMEN</Logo>
         <Description>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi beatae totam et nobis quae velit, reiciendis eveniet laudantium eligendi nisi suscipit nulla hic unde blanditiis delectus sunt eaque quidem voluptatem quaerat assumenda voluptatum harum placeat porro! Suscipit error accusamus saepe? Modi dolore repudiandae voluptatibus saepe cumque ullam sit velit consectetur!</Description>
       <SocialMedia>
         <Icons>
@@ -109,7 +109,7 @@ const Footer = () => {
         <FmdGoodIcon style={{marginRight: "10px"}}/> 532, Heidelberg Bismarkplatz Germany
         </ContactDetails>
         <ContactDetails>
-        <CallIcon style={{marginRight: "10px"}}/> +49-151526263O
+        <CallIcon style={{marginRight: "10px"}}/> +49-1515262630
         </ContactDetails>
         <ContactDetails>
          <MailIcon style={{marginRight: "10px"}}/> abc@gmail.com

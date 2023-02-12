@@ -3,7 +3,9 @@ import Products1 from "../components/Products1";
 import Footer from "../components/Footer";
 import { mobile } from "../responsive";
 import { useLocation } from "react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import {useDispatch, useSelector} from "react-redux";
+import { getProducts } from "../redux/apiCalls";
 
 const Container = styled.div``;
 
@@ -40,7 +42,12 @@ const ProductList = () => {
   const cat = location.pathname.split("/")[2];
   const [filters,setFilters] = useState({});
   const [sort,setSort] = useState({newest});
+  const dispatch =useDispatch();
+  const products =useSelector( state => state.product.products)
 
+  useEffect(()=>{
+    getProducts(dispatch)
+  }, [dispatch]);
 
   const handleFilters = (e) => {
     const value = e.target.value;
