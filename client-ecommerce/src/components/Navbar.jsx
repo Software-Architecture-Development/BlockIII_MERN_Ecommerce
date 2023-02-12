@@ -44,7 +44,7 @@ const SearchContainer = styled.div`
 
 const Input = styled.input`
   border: none;
-  ${mobile({ width: "48px" })}
+  ${mobile({ width: "50px" })}
 `;
 
 const Center = styled.div`
@@ -89,9 +89,6 @@ const Navbar = () => {
           <Logo> QUICKSHOP.</Logo>
         </Center>
         <Right>
-        <Nav.Link href="/register" style={{textDecoration:"none"}}>
-          <MenuItem>REGISTER</MenuItem>
-          </Nav.Link>
           <Nav.Link href="/" style={{textDecoration:"none"}}>
           <MenuItem>SIGN OUT</MenuItem>
           </Nav.Link>
