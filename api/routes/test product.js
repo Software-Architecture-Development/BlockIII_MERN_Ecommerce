@@ -16,3 +16,16 @@ describe("Product routes", () => {
   afterEach(async () => {
     await Product.deleteMany({});
   });
+  afterAll(async () => {
+    await mongoose.connection.close();
+  });
+
+  describe("POST /", () => {
+    it("should create a new product", async () => {
+      const res = await request(app)
+        .post("/product")
+        .send({
+          name: "new product",
+          price: 20,
+          categories: ["new"],
+        })
