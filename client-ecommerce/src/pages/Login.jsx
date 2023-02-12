@@ -102,6 +102,7 @@ const Login = () => {
       console.log(userObject);
       setUser(userObject);
       document.getElementById("signInDiv").hidden = true;
+      navigate("/home");
   
     }
   
@@ -166,9 +167,6 @@ const Login = () => {
           <div id="signInDiv"></div>
           {/* {error && <Error>Something went wrong...</Error>} */}
            <p style={{color:"red"}}>{formErrors.password}</p>
-          <Button>
-            LOGIN
-          </Button>
           <Nav.Link href="/register" style={{textDecoration:"none"}}>
           <Link >CREATE A NEW ACCOUNT</Link>
           </Nav.Link>

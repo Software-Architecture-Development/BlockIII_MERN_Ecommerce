@@ -86,7 +86,7 @@ const Navbar = () => {
           </SearchContainer>
         </Left>
         <Center>
-          <Logo> QUICKSHOP.</Logo>
+          <Logo>Namaste</Logo>
         </Center>
         <Right>
         <Nav.Link href="/register" style={{textDecoration:"none"}}>
