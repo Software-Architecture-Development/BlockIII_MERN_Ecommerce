@@ -67,9 +67,6 @@ const Link = styled.a`
   cursor: pointer;
 `;
 
-const Error = styled.span`
-  color: red;
-`;
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -113,7 +110,7 @@ const Login = () => {
   return (<>
     <Container>
       <Wrapper>
-    {Object.keys(formErrors).length === 0 && isSubmit ? <h2 style ={{color:"cornflowerblue", marginLeft:"35%"}}>Logged In</h2>:""}
+    {Object.keys(formErrors).length === 0 && isSubmit ? <h2 style ={{color:"cornflowerblue", marginLeft:"34%"}}>Logged In</h2>:""}
         <Title>SIGN IN</Title>
         <Form onSubmit={handleSubmit}>
           <Input
