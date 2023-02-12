@@ -3,6 +3,7 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import { trendingProducts } from '../data'
 import ProductStyle from './ProductStyle'
+import { mobile } from '../responsive'
 import SearchIcon from '@mui/icons-material/Search';
 import Footer from './Footer'
 
@@ -18,6 +19,8 @@ const SearchContainer = styled.div`
   width:20%;
   padding: 4px;
   margin-top: 5px
+  ${mobile({ width: "56%" })}
+  
 `;
 
 const Input = styled.input`
