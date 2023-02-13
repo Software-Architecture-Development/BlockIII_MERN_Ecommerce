@@ -1,4 +1,4 @@
-name: MERN CI
+name: DEPLOY TO DOCKERHUB
 
 on:
   push:
@@ -6,6 +6,8 @@ on:
   pull_request:
     branches: [ "rahul_dev" ]
 
+
+#
 env:
   DOCKER_USERE: ${{ secrets.DOCKER_USER }}
   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
