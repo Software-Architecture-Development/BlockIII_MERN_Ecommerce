@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from "styled-components";
 import { mobile } from "../responsive";
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from '../redux/apiCalls';
+import { useNavigate } from "react-router-dom";
+
 
 const Container = styled.div`
   width: 100vw;
@@ -44,21 +46,18 @@ const Input = styled.input`
   padding: 10px;
 `;
 
-const Agreement = styled.span`
-  font-size: 14px;
-  margin: 20px 0px;
-`;
-
 const Button = styled.button`
-  width: 40%;
+  width: 30%;
   border: none;
   padding: 15px 20px;
   background-color: #777799;
   color: white;
   cursor: pointer;
   align-items: center;
+  margin-top:20px;
   ${mobile({ padding: "20px 20px" })}
 `;
+
 
 const Register = () => {
   
@@ -68,30 +67,89 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirm_password, setConfirmPassword] = useState("");
+  const [formErrors, setFormErrors] =useState({})
+  const [isSubmit, setIsSubmit] =useState(false);
   const dispatch = useDispatch();
+  let navigate = useNavigate(); 
 
-  const handleClick = (e) => {
+  const handleSubmit = (e) => {
     console.log(e.target.value); 
-    console.log(name, lastname, username,email,  password, confirm_password );  
-    register(dispatch, {name, lastname, username,email,  password, confirm_password });
+    setFormErrors(validate());
+    setIsSubmit(true)
+    if(Object.keys(formErrors).length === 0 && isSubmit){
+      register(dispatch, {name, lastname, username,email,  password, confirm_password });
+      navigate("/home");
+     }
     e.preventDefault();
   };
-  return (
+
+  useEffect(()=>{
+    console.log(formErrors)
+        if(Object.keys(formErrors).length === 0 && isSubmit){
+          console.log("noerrors")
+        }
+  }, [formErrors])
+
+    const validate =() =>{
+          
+     const errors ={}
+     const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      
+     if(!name){
+      errors.name = "name required!"
+     }
+     if(!lastname){
+      errors.lastname = "lastname required!"
+     }
+     if(!username){
+      errors.username = "username required!"
+     }
+     if(!email){
+      errors.email = "email required!"
+     }else if(!regex.test(email)){
+      errors.email = "invalid email!"
+     }
+     if(!password){
+      errors.password = "password required!"
+     }
+     if(!confirm_password){
+      errors.confirm_password = "confirm_password required!"
+     }else if(confirm_password !== password){
+      errors.confirm_password = "password mismatch!"
+     }
+   return errors
+     }
+
+     return (
     <Container>
       <Wrapper>
         <Title>CREATE AN ACCOUNT</Title>
-        <Form>
-          <Input placeholder="name" onChange={(e) => setName(e.target.value)}/>
-          <Input placeholder="lastname" onChange={(e) => setLastName(e.target.value)} />
-          <Input placeholder="username" onChange={(e) => setUsername(e.target.value)}/>
-          <Input placeholder="email" onChange={(e) => setEmail(e.target.value)}/>
-          <Input placeholder="password"  type="password" onChange={(e) => setPassword(e.target.value)}/>
-          <Input placeholder="confirm_password"  type="password" onChange={(e) => setConfirmPassword(e.target.value)}/>
-          <Agreement>
-          I hereby consent to the processing of the personal data  and declare my
-           agreement with the <b>DATA PROTECTION REGULATIONS</b>
-          </Agreement>      
-          <Button onClick={handleClick}>REGISTER</Button>  
+        <Form onSubmit={handleSubmit}>
+          <div>
+          <Input placeholder="name" name ="name" value={name} onChange={(e) => setName(e.target.value)}/>
+          <p style={{color:"red"}}>{formErrors.name}</p>
+         </div>
+         <div>
+          <Input placeholder="lastname" name ="lastname" value={lastname} onChange={(e) => setLastName(e.target.value)}/>
+          <p style={{color:"red"}}>{formErrors.lastname}</p>
+         </div>
+         <div>
+          <Input placeholder="username" name ="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
+          <p style={{color:"red"}}>{formErrors.username}</p>
+         </div>
+         <div>
+          <Input placeholder="email" name ="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+          <p style={{color:"red"}}>{formErrors.email}</p>
+         </div>
+         <div>
+          <Input placeholder="password" name ="password" value={password} type="password" onChange={(e) => setPassword(e.target.value)}/>
+          <p style={{color:"red"}}>{formErrors.password}</p>
+         </div>
+         <div>
+          <Input placeholder="confirm_password" name ="confirm_password" type="password" value={confirm_password} onChange={(e) => setConfirmPassword(e.target.value)}/>
+          <p style={{color:"red"}}>{formErrors.confirm_password}</p>
+          </div>
+          <Button >REGISTER</Button>  
         </Form>
       </Wrapper>
     </Container>

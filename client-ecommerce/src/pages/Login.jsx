@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { login } from "../redux/apiCalls";
 import { mobile } from "../responsive";
 import { useDispatch, useSelector } from "react-redux";
+import jwt_decode from "jwt-decode"
+
+
+import {Nav} from "react-bootstrap";
+ import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   width: 100vw;
@@ -60,7 +65,7 @@ const Button = styled.button`
 const Link = styled.a`
   margin: 5px 0px;
   font-size: 12px;
-  text-decoration: underline;
+  text-decoration: none;
   cursor: pointer;
 `;
 
@@ -71,38 +76,104 @@ const Error = styled.span`
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [formErrors, setFormErrors] =useState({})
+  const [isSubmit, setIsSubmit] =useState(false);
   const dispatch = useDispatch();
   const { isFetching, error } = useSelector((state) => state.user);
+  let navigate = useNavigate();
 
-  const handleClick = (e) => {
-    console.log(e.target.value);  
-    login(dispatch, { username, password });
+   const handleSubmit =(e) =>{
+     setFormErrors(validate());
+     setIsSubmit(true);
+     if(Object.keys(formErrors).length === 0 && isSubmit){
+        login(dispatch, { username, password });
+        navigate("/home");
+     }
     e.preventDefault();
   };
+
+  //google auth
+  const [user, setUser] = useState({});
+    
+  function handleCallbackResponse(response){
+      
+      console.log("Encoded JWT ID token: " + response.credential);
+      var userObject = jwt_decode(response.credential);
+      console.log(userObject);
+      setUser(userObject);
+      document.getElementById("signInDiv").hidden = true;
+      navigate("/home");
+  
+    }
+  
+    function handlesignOut(event){
+      setUser({});
+      document.getElementById("signInDiv").hidden = false;
+    }
+    window.onload = () => {
+      window.google.accounts.id.initialize({
+        client_id: "1051679490979-41okr52q2vnc3k6ps6c7c0qs43800191.apps.googleusercontent.com",
+        callback: handleCallbackResponse
+  
+        });
+  
+        window.google.accounts.id.renderButton(
+          document.getElementById("signInDiv"),
+          { type: "icon", size: "large"}
+        );
+  
+        window.google.accounts.id.prompt();
+    }
+   
+   
+   useEffect(() =>{
+    console.log(formErrors)
+    if(Object.keys(formErrors).length === 0 && isSubmit){
+    }
+   }, [formErrors])
+
+   const validate =() =>{
+       const errors ={}
+       if(!username){
+        errors.username = "Username required!"
+       } 
+       if(!password){
+        errors.password = "Password required!"
+       }
+        return errors
+   }
+
   return (
     <Container>
       <Wrapper>
         <Title>SIGN IN</Title>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <Input
             placeholder="username"
             onChange={(e) => setUsername(e.target.value)}
+            value={username}
+
           />
+           <p style={{color:"red"}}>{formErrors.username}</p>
           <Input
             placeholder="password"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
+            value={password}
           />
-          <Button onClick={handleClick} disabled={isFetching}>
+          <Button onClick={handleSubmit} disabled={isFetching} onError={error}>
             LOGIN
           </Button>
+          <div id="signInDiv"></div>
           {/* {error && <Error>Something went wrong...</Error>} */}
-          <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
-          <Link>CREATE A NEW ACCOUNT</Link>
+           <p style={{color:"red"}}>{formErrors.password}</p>
+          <Nav.Link href="/register" style={{textDecoration:"none"}}>
+          <Link >CREATE A NEW ACCOUNT</Link>
+          </Nav.Link>
         </Form>
       </Wrapper>
     </Container>
   );
-};
+}
 
 export default Login;

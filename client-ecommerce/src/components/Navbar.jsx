@@ -8,7 +8,6 @@ import {useSelector} from "react-redux";
 import {
  Nav
 } from "react-bootstrap";
-import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   height: 60px;
@@ -87,21 +86,20 @@ const Navbar = () => {
           </SearchContainer>
         </Left>
         <Center>
-          <Logo> ECOMMERCE.</Logo>
+          <Logo>Namaste</Logo>
         </Center>
         <Right>
-        <Nav.Link href="/register">
+        <Nav.Link href="/register" style={{textDecoration:"none"}}>
           <MenuItem>REGISTER</MenuItem>
           </Nav.Link>
-          <Nav.Link href="/login">
-          <MenuItem>SIGN IN</MenuItem>
+          <Nav.Link href="/" style={{textDecoration:"none"}}>
+          <MenuItem>SIGN OUT</MenuItem>
           </Nav.Link>
           <MenuItem>
           <Badge badgeContent={quantity} color="primary">
           <ShoppingCartOutlinedIcon/>
           </Badge>
           </MenuItem>
-          {/* </Link> */}
         </Right>
       </Wrapper>
     </Container>

@@ -1,9 +1,13 @@
 import styled from "styled-components";
-import Products1 from "../components/Products1";
+//import Products1 from "../components/Products1";
 import Footer from "../components/Footer";
 import { mobile } from "../responsive";
 import { useLocation } from "react-router";
-import { useState } from "react";
+import Products from "../components/Products";
+import Products1 from "../components/Products1";
+import { useEffect, useState } from "react";
+import {useDispatch, useSelector} from "react-redux";
+import { getProducts } from "../redux/apiCalls";
 
 const Container = styled.div``;
 
@@ -36,11 +40,19 @@ const Select = styled.select`
 const Option = styled.option``;
 
 const ProductList = () => {
+
   const location = useLocation();
+  console.log("hello")
+  console.log(location.pathname.split("/")[2])
   const cat = location.pathname.split("/")[2];
   const [filters,setFilters] = useState({});
-  const [sort,setSort] = useState({newest});
+  const [sort,setSort] = useState("newest");
+  const dispatch =useDispatch();
+  const products =useSelector( state => state.product.products)
 
+  useEffect(()=>{
+    getProducts(dispatch)
+  }, [dispatch]);
 
   const handleFilters = (e) => {
     const value = e.target.value;
@@ -88,6 +100,7 @@ const ProductList = () => {
         </Filter>
       </FilterContainer>
       <Products1 cat={cat} filters={filters} sort={sort} />
+      {/* <Products1 /> */}
       <Footer />
     </Container>
   );

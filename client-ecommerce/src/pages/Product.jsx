@@ -9,7 +9,7 @@ import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useLocation } from "react-router";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { publicRequest } from "../requestMethods";
 
 import { addProduct } from "../redux/cartRedux";
@@ -54,6 +54,9 @@ const Wrapper = styled.div`
 
 const ImgContainer = styled.div`
   flex: 1;
+  width: 100%;
+  height: 70vh;
+  object-fit: cover;
 `;
 
 const Image = styled.img`
@@ -176,7 +179,7 @@ const Product = () => {
     useEffect(() => {
       const getProduct = async () => {
         try {
-          const res = await publicRequest.get("/products/find/" + id);
+          const res = await publicRequest.get(`/products/find/${id}`);
           setProduct(res.data);
         } catch {}
       };
@@ -214,14 +217,15 @@ const Product = () => {
       {/* <Slide /> */}
       <ImgContainer>
          <Image src={product.img} />
-       
         </ImgContainer>
         <InfoContainer>
+          {/* <Title>{product.title}</Title> */}
           <Title>{product.title}</Title>
           <Desc>
           {product.desc}
           </Desc>
           <Price>€ {product.price}</Price>
+         
           <FilterContainer>
             <Filter>
               <FilterTitle>Color</FilterTitle>
